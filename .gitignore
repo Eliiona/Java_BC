@@ -1,0 +1,9 @@
+.classpath
+**/.~lock*
+*.log
+logs/**
+.metadata/**
+.project
+.settings/**
+target/**
+wbp-meta/**
