@@ -2,4 +2,23 @@
 
 somethīng new added
 
-thīs should be just in branch
+Spring session:
+https://www.baeldung.com/spring-security-session
+
+https://moqups.com/
+
+Instructions for git:
+1) Open console in directory where you're going to make the project
+2) Type git clone https://github.com/Eliiona/Java_BC.git -- will download current files into a new folder Java_BC
+   and link that repository 
+
+--> git checkout master / git checkout branch --- switch between branches we should only
+    commit to branch, master should be edited on GitHub
+--> git add -A / git add filename.filetype --- add every change or specific file
+--> git commit -m "Commit comment" --- keep comments useful for teammates
+--> git push --- commit changes
+
+--> git pull --- getting changes commited by someone else on the same repository
+--> git status --- see what has happened to repository - files added and such
+
+uploaded from Raivo laptop
