@@ -11,7 +11,9 @@ Instructions for git:
    and link that repository 
 
 --> git checkout master / git checkout branch --- switch between branches we should only
-      commit to branch, master should be edited on GitHub
+      commit to branch, master should be edited on GitHub.
+      !! Using this command files change in your pc directory according to the branch youre looking at. 
+      When making changes in one branch they cannot be pushed to a different branch.
 --> git add -A / git add filename.filetype --- add every change or specific file
 --> git commit -m "Commit comment" --- keep comments useful for teammates
 --> git push --- commit changes
