@@ -11,7 +11,7 @@ https://moqups.com/
 
 Instructions for git:
 1) Open console in directory where you're going to make the project
-2) Type git pull https://github.com/Eliiona/Java_BC.git -- will download current files into a new folder Java_BC
+2) Type git clone https://github.com/Eliiona/Java_BC.git -- will download current files into a new folder Java_BC
    and link that repository 
 
 --> git checkout master / git checkout branch --- switch between branches we should only
