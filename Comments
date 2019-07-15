@@ -15,12 +15,12 @@ Instructions for git:
    and link that repository 
 
 --> git checkout master / git checkout branch --- switch between branches we should only
-    commit to branch, master should be edited on GitHub
+      commit to branch, master should be edited on GitHub
 --> git add -A / git add filename.filetype --- add every change or specific file
 --> git commit -m "Commit comment" --- keep comments useful for teammates
 --> git push --- commit changes
 
---> git pull --- getting changes commited by someone else on the same repository
+--> git pull origin master --- getting changes commited by someone else on the repository master branch
 --> git status --- see what has happened to repository - files added and such
 
 uploaded from Raivo laptop
