@@ -1,11 +1,9 @@
-﻿# Template https://github.com/valdisvi/spring-boot-demo
-
-somethīng new added
-
-Spring session:
+Useful links:
 https://www.baeldung.com/spring-security-session
-
+https://www.thymeleaf.org/
 https://moqups.com/
+https://github.com/valdisvi/spring-boot-demo
+spring.io/tools
 
 Instructions for git:
 1) Open console in directory where you're going to make the project
