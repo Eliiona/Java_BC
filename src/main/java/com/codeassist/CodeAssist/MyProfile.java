@@ -1,5 +1,6 @@
 package com.codeassist.CodeAssist;
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller 
-public class SignUp {
-    @GetMapping("/signup") 
+public class MyProfile {
+    @GetMapping("/MyProfile") 
     public String signup(
         @RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
          model.addAttribute("name", name); 
-         return "welcome"; 
+         return "MyProfile"; 
          // returns the already proccessed model from src/main/resources/templates/greeting.html 
   }
 }
