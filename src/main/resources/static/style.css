@@ -100,12 +100,13 @@ body.background{
 }
 
 form.signup {
-	margin: 50px;
+	margin: 20px;
 	background-color: white;
 	justify-content: center;
 	display: flex;
 	width: 500px;
-	height: 650px;
+	height: 710px;
+	border-radius: 10px;
 }
 
 * {box-sizing: border-box}
