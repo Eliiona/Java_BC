@@ -5,6 +5,8 @@ https://moqups.com/
 https://github.com/valdisvi/spring-boot-demo
 spring.io/tools
 
+http://www.springboottutorial.com/creating-web-application-with-spring-boot
+
 Instructions for git:
 1) Open console in directory where you're going to make the project
 2) Type git clone https://github.com/Eliiona/Java_BC.git -- will download current files into a new folder Java_BC
@@ -14,11 +16,17 @@ Instructions for git:
       commit to branch, master should be edited on GitHub.
       !! Using this command files change in your pc directory according to the branch youre looking at. 
       When making changes in one branch they cannot be pushed to a different branch.
+      
+--> git pull origin master --- getting changes commited by someone else on the repository master branch 
+      !!Start every task with this
+--> git checkout -b [new branch name with issue number] --- create new branch for your assigned issue
 --> git add -A / git add filename.filetype --- add every change or specific file
---> git commit -m "Commit comment" --- keep comments useful for teammates
---> git push --- commit changes
+--> git commit -m "Closed No" --- keep comments useful for teammates
+--> git puch origin -u [new branch name with issue number] --- push to create new branch ir repository
+--> git push --- commit changes after successfully commited to the right branch
 
---> git pull origin master --- getting changes commited by someone else on the repository master branch
+--> git branch -d branch_name --- delete branch when done working on it - push and merge complete
+--> git branch -D branch_name ---delete branch forcefully when made a mistake
 --> git status --- see what has happened to repository - files added and such
 
 List of comands - https://gist.github.com/davfre/8313299
