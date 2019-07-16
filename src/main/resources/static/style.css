@@ -140,10 +140,13 @@ input.signup[type=text], input.signup[type=password] {
 	}
   }
 
-
-
-
 /* SIGNUP CSS page __________________________________________________________________________________________________________________________*/
+
+
+
+
+
+
 
 
 /* WELCOME CSS page __________________________________________________________________________________________________________________________*/
@@ -152,12 +155,18 @@ body {
 	font-family: Arial;
 }
 
+.main_div {
+	height: 98vh;
+	width: 100%;
+	background: rgba(62,70,80,1);
+}
+
 .static_header_bar {
 	width: 100%;
 	height: 80px;
 	margin-top: 0px;
 	background-color: #f1f3f3;
-	border: 1px solid black;
+	border-bottom: 1px solid;
 	display: inline-block;
 	box-sizing: border-box;
 	background: rgba(62,70,80,1);
@@ -177,14 +186,17 @@ body {
 	display: inline-block;
 	float: left;
 	margin: 0;
-	margin-top: 15px;
+	margin-top: 10px;
 	padding-left: 20px;
-
 }
 
 .profile_logout_buttons p{
 	margin: 0;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
+}
+
+.profile_logout_buttons a:hover {
+	color: black;
 }
 
 .profile_logout_buttons a {
@@ -209,53 +221,148 @@ body {
 	margin: 0;
 }
 
-.exercise_side_dar {
-	width: 200px;
-	height: 89vh;
+.exercise_side_bar {
+	width: 150px;
+	height:calc(100% - 80px);
+	overflow: auto;
 	margin-top: -1px;
 	background-color: #f1f3f3;
 	float: left;
-	border: 1px solid black;
+	border-right: 1px solid;
 	display: inline-block;
 	box-sizing: border-box;
 	background: rgba(62,70,80,1);
-
+	text-align: center;
 }
 
-.exercise_side_dar p {
+.exercise_side_bar p {
 	font-size: 20px;
-	color: white;
+	color: grey;
 	margin: 0;
 	margin-top: 2px;
-	margin-left: 50px;
+	/*text-decoration: none;*/
 }
 
-.exercise_side_dar p:nth-child(1) {
+.exercise_side_bar p:nth-child(1) {
 	margin-top: 15px;
 }
 
-.exercise_side_dar a {
-	text-decoration: none;
+.exercise_side_bar a {
+	/*text-decoration: none;*/
 	color: white;
 }
 
+.exercise_side_dar p:hover {
+	/*text-decoration: none;*/
+	color: black;
+	background: white;
+}
+
 .welcome_message_box {
-	width: 85%;
-	height: 89vh;
-	margin-top: -1px;
-	margin-left: -1px;
+	width:calc(100% - 150px);
+	height:calc(100% - 80px);
 	background-color: #f1f3f3;
-	border: 1px solid black;
 	display: inline-block;
 	box-sizing: border-box;
 	background: rgba(62,70,80,1);
 }
 
 .welcome_message_box h1{
-	margin-top: 350px;
+	margin-top: 300px;
 	text-align: center;
 	font-size: 70px;
 	color: white;
 }
 
+/* WELCOME CSS page __________________________________________________________________________________________________________________________*/
 
+
+
+
+
+
+
+
+
+
+
+
+/* MYPROFILE CSS page __________________________________________________________________________________________________________________________*/
+
+.myprofile_side_bar {
+	width: 150px;
+	height:calc(100% - 80px);
+	overflow: auto;
+	margin-top: -1px;
+	background-color: #f1f3f3;
+	float: left;
+	border-right: 1px solid;
+	display: inline-block;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+	text-align: center;
+}
+
+.myprofile_side_bar p {
+	font-size: 25px;
+	color: white;
+	margin: 0;
+	margin-top: 2px;
+}
+
+.myprofile_side_bar p:nth-child(1) {
+	margin-top: 15px;
+}
+
+.myprofile_box {
+	width:calc(100% - 150px);
+	height:calc(100% - 80px);
+	display: inline-block;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+}
+
+.myprofile_box h2{
+	font-size: 50px;
+	color: white;
+	text-align: center;
+}
+
+.myquestion_box {
+	width: 80%;
+	margin: auto;
+	border: 1px solid;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+}
+
+.myquestion_box h3{
+	font-size: 30px;
+	color: white;
+	/*display: inline-block;*/
+	text-align: center;
+}
+
+.myquestion_box p:nth-child(1){
+	color: red;
+	text-align: left;
+	display: inline-block;
+}
+.myquestion_box p:nth-child(2){
+	color: green;
+	text-align: left;
+	display: inline-block;
+}
+
+.myquestion_box p:nth-child(3){
+	color: blue;
+	text-align: right;
+}
+
+.myquestion_box p:nth-child(4){
+	text-align: right;
+}
+
+
+
+/* MYPROFILE CSS page __________________________________________________________________________________________________________________________*/
