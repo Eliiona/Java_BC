@@ -93,12 +93,57 @@ body {
 
 /* LOGIN CSS page ____________________________________________________________________________________________________________________________*/
 
+/* SIGNUP CSS page __________________________________________________________________________________________________________________________*/
+body.background{
+	justify-content: center;
+	display: flex;
+}
+
+form.signup {
+	margin: 50px;
+	background-color: white;
+	justify-content: center;
+	display: flex;
+	width: 500px;
+	height: 650px;
+}
+
+* {box-sizing: border-box}
+hr {
+	border: 1px solid #f1f1f1;
+	margin-bottom: 25px;
+  }
+input.signup[type=text], input.signup[type=password] {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+  }
+  .container {
+	padding: 16px;
+  }
+
+  .cancelbtn, .signupbtn {
+	float: left;
+	width: 50%;
+  }
+  .clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+  }
+  @media screen and (max-width: 300px) {
+	.cancelbtn, .signupbtn {
+	  width: 100%;
+	}
+  }
 
 
 
 
-
-
+/* SIGNUP CSS page __________________________________________________________________________________________________________________________*/
 
 
 /* WELCOME CSS page __________________________________________________________________________________________________________________________*/
