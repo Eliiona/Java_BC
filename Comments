@@ -23,7 +23,8 @@ Instructions for git:
 --> git puch origin -u [new branch name with issue number] --- push to create new branch ir repository
 --> git push --- commit changes after successfully commited to the right branch
 
---> git branch -d branch_name --- delete branch when done working on it or made a mistake
+--> git branch -d branch_name --- delete branch when done working on it - push and merge complete
+--> git branch -D branch_name ---delete branch forcefully when made a mistake
 --> git status --- see what has happened to repository - files added and such
 
 List of comands - https://gist.github.com/davfre/8313299
