@@ -5,6 +5,8 @@ https://moqups.com/
 https://github.com/valdisvi/spring-boot-demo
 spring.io/tools
 
+http://www.springboottutorial.com/creating-web-application-with-spring-boot
+
 Instructions for git:
 1) Open console in directory where you're going to make the project
 2) Type git clone https://github.com/Eliiona/Java_BC.git -- will download current files into a new folder Java_BC
