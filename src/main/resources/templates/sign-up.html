@@ -10,10 +10,10 @@
 </head>
 <body class="background">
   <div>
-    <form name="form" class="signup" method="POST" action="#" th:action="@{/signup}" th:object="${user}" style="border:1px solid #ccc onsubmit="return validate()">
+    <form name="form" class="signup" method="POST" action="#" th:action="@{/signup}" th:object="${user}" style="border:1px solid #ccc" onsubmit="return validate()">
         <div class="container">
           <h1>Sign Up</h1>
-          <p th:text="${message}"></p>
+          <p>Please fill in this form to create an account.</p>
           <hr>
       <span>
           <label for="user"><b>Bootcamp ID </b></label><br>
@@ -44,12 +44,18 @@
       
       
           <div class="clearfix">
-            <a href="login.html"><button type="button" class="cancelbtn">Cancel</button></a>
+            <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
             <button type="submit" class="signupbtn">Sign Up</button>
           </div>
         </div>
       </form> 
     </div>
+    <script>
+        var showtext = "[[${message}]]";
+        if (showtext != ""){
+            window.alert(showtext);
+        }
+	</script>
     <script> 
         function validate()                                    
         { 
