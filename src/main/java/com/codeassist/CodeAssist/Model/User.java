@@ -1,4 +1,4 @@
-package com.codeassist.CodeAssist;
+package com.codeassist.CodeAssist.Model;
 
 import java.util.ArrayList;
 

@@ -17,11 +17,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller 
 public class Login {
        @GetMapping("/")
-       public ModelAndView login() {
+       public ModelAndView loginGet() {
     	   ModelAndView mav = new ModelAndView();
-   	    mav.setViewName("login");
+    	   mav.setViewName("login");
    	  //  mav.addObject("user", new User());
    	  //  mav.addObject("allProfiles", getProfiles());
    	    return mav;
      }
+       
+       @PostMapping("/")
+       public ModelAndView loginPost() {
+    	   return null;
+       }
 }
