@@ -1,32 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <title>Sign up</title>
 <!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../static/css/style.css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+
 </head>
 <body class="background">
   <div>
-    <form class="signup" method="POST" action="signup" style="border:1px solid #ccc">
+    <form name="form" class="signup" method="POST" action="#" th:action="@{/signup}" th:object="${user}" style="border:1px solid #ccc" onsubmit="return validate()">
         <div class="container">
           <h1>Login</h1>
           <hr>
       <span>
-          <label for="user"><b>Bootcamp ID</b></label><br>
-          <input class = "signup" type="text" placeholder="AAAA" name="user" required><br>
-      </span>      
+          <label for="user"><b>Bootcamp ID </b></label><br>
+          <input class = "signup" type="text" placeholder="AAAA" name="user" th:field="*{bcCode}" required><br>
+      </span>
+      <div>
+          <label for="name"><b>Name </b></label><br>
+          <input class = "signup" type="text" placeholder="Enter your name" name="name" th:field="*{name}" required>
+      </div>
+          <div>
+            <label for="lastname"><b>Surname </b></label><br>
+            <input class = "signup" type="text" placeholder="Enter your surname" name="lastname" th:field="*{surname}" required>
+          </div>
+      
           <div>
               <label for="psw"><b>Password</b></label><br>
-              <input class = "signup" type="password" placeholder="Enter Password" name="psw" required>
-          </div>       
-            <button type="submit" class="signupbtn">Login</button>
+              <input class = "signup" type="password" placeholder="Enter Password" name="psw" th:field="*{password}" required>
+          </div>
+      
+          <div>
+              <label for="psw-repeat"><b>Repeat Password</b></label><br>
+              <input class = "signup" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          </div>
+      
+          <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+          </label>
+      
+      
+          <div class="clearfix">
+            <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
+            <button type="submit" class="signupbtn">Sign Up</button>
           </div>
         </div>
       </form> 
     </div>
+    <script>
+        var showtext = "[[${message}]]";
+        if (showtext != ""){
+            window.alert(showtext);
+        }
+	</script>
+    <script> 
+        function validate()                                    
+        { 
+            var code = document.form.user.value;               
+            var name = document.form.name.value;    
+            var lastname = document.form.lastname.value;  
+            var password =  document.form.password.value;
+            var repeat = document.form['psw-repeat'].value;
+
+            console.info("Code: "+code);
+            console.info("Name: "+name);
+            console.info("Lastname: "+lastname);
+            console.info("Password: "+password);
+            console.info("Re-entered: "+repeat);
+
+
+            var codereg = /^\w{4}$/;
+            var namereg = /^[a-zA-Z]{2,20}$/;   
+           
+            if (codereg.test(code) == false)                                  
+            { 
+                console.log(code + " Not valid")
+                window.alert("Please enter a valid bootcamp code"); 
+                user.focus(); 
+                return false; 
+            } 
+           
+            if (name.value == "")                               
+            { 
+                alert("Please enter your name"); 
+                name.focus();
+                return false; 
+            } 
+               
+            if (lastname.value == "")                                   
+            { 
+                window.alert("Please enter your lastname"); 
+                lastname.focus(); 
+                return false; 
+            }
+           
+            if (password.value == "")                        
+            { 
+                window.alert("Please enter your password"); 
+                psw.focus(); 
+                return false; 
+            }
+           
+            if (repeat == "")                  
+            { 
+                alert("Please enter your course."); 
+                'psw-repeat'.focus(); 
+                return false; 
+            } 
+           
+            return true; 
+        }</script> 
 </body>
 </html>
