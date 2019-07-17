@@ -1,6 +1,4 @@
 package com.codeassist.CodeAssist.Model;
-
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.validation.constraints.Size;

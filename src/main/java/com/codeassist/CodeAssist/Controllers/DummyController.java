@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.codeassist.CodeAssist.Model.Reply;
-
-import Repo.ReplyRepo;
+import com.codeassist.CodeAssist.Repo.ReplyRepo;
 
 @Controller
 public class DummyController {
