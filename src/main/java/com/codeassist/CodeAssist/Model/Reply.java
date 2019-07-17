@@ -29,9 +29,13 @@ public class Reply {
 	@Column(name = "date")
 	private Date creationDate;
 	
-	//@ManyToOne
-	//@JoinColumn(name = "Id_user")
-	//private User user;
+	@ManyToOne
+	@JoinColumn(name = "Id_user")
+	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name = "Id_issue")
+	private Issue issue;
 	
 	public Reply(){
 		super();
