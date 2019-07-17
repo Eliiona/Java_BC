@@ -12,6 +12,8 @@ import com.codeassist.CodeAssist.Repo.UserRepo;
 @Controller
 public class LoginController {
 	private boolean incorrectCredentials = false;
+
+	
 	@Autowired
 	UserRepo userRepo;
 	
@@ -28,11 +30,9 @@ public class LoginController {
 	public String loginPost(User user) {
 		if(userRepo.findByBcCodeAndPassword(user.getBcCode(), user.getPassword()) != null) {
 			return "redirect:/MyProfile";
-		}
-		else {
+		} else {
 			incorrectCredentials = true;
 			return "redirect:/";
 		}
-
 	}
 }
