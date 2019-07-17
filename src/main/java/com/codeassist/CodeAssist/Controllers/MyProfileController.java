@@ -8,25 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class Login {
-	@GetMapping("/")
-	public ModelAndView login() {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("login");
-		// mav.addObject("user", new User());
-		// mav.addObject("allProfiles", getProfiles());
-		return mav;
-	}
-
-	@GetMapping("/login.html")
-	public void getLogin() {
-		login();
+public class MyProfileController {
+	@GetMapping("/MyProfile")
+	public String signup(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
+			Model model) {
+		model.addAttribute("name", name);
+		return "MyProfile";
+		// returns the already proccessed model from
+		// src/main/resources/templates/greeting.html
 	}
 }
