@@ -18,7 +18,7 @@ public class SignUp {
     public String signup(
         @RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
          model.addAttribute("name", name); 
-         return "welcome"; 
+         return "sign-up"; 
          // returns the already proccessed model from src/main/resources/templates/greeting.html 
   }
 }

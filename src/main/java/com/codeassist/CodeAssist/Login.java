@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller 
 public class Login {
-       @GetMapping("")
-       public String greeting(
+       @GetMapping("/")
+       public String login(
            @RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
             //model.addAttribute("name", name); 
             return "login"; 
