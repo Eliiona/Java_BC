@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller 
+@Controller
 public class Login {
-       @GetMapping("/")
-       public ModelAndView loginGet() {
-    	   ModelAndView mav = new ModelAndView();
-    	   mav.setViewName("login");
-   	  //  mav.addObject("user", new User());
-   	  //  mav.addObject("allProfiles", getProfiles());
-   	    return mav;
-     }
-       
-       @PostMapping("/")
-       public ModelAndView loginPost() {
-    	   return null;
-       }
+	@GetMapping("/")
+	public ModelAndView login() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("login");
+		// mav.addObject("user", new User());
+		// mav.addObject("allProfiles", getProfiles());
+		return mav;
+	}
+
+	@GetMapping("/login.html")
+	public void getLogin() {
+		login();
+	}
 }
