@@ -6,6 +6,7 @@ https://github.com/valdisvi/spring-boot-demo
 spring.io/tools
 https://www.baeldung.com/spring-security-login-error-handling-localization
 http://www.springboottutorial.com/creating-web-application-with-spring-boot
+https://www.springboottutorial.com/spring-boot-and-h2-in-memory-database
 
 Instructions for git:
 1) Open console in directory where you're going to make the project
@@ -33,5 +34,10 @@ List of comands - https://gist.github.com/davfre/8313299
 
 uploaded from Elinas home laptop
 
-
+    <script>
+        var showtext = "[[${message}]]";
+        if (showtext != ""){
+            window.alert(showtext);
+        }
+        </script>
 
