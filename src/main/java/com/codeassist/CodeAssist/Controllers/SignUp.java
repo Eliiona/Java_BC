@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller 
+@Controller
 public class SignUp {
-    @GetMapping("/signup") 
-    public String signup(
-        @RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-         model.addAttribute("name", name); 
-         return "sign-up"; 
-         // returns the already proccessed model from src/main/resources/templates/greeting.html 
-  }
+	@GetMapping("/sign-up.html")
+	public String signup(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
+			Model model) {
+		model.addAttribute("name", name);
+		return "sign-up";
+		// returns the already proccessed model from
+		// src/main/resources/templates/greeting.html
+	}
 }
