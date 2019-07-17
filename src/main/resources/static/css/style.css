@@ -14,7 +14,7 @@ body {
 }
 
 .background {
-	height: 98vh;
+	height: 100%;
 	background: -webkit-radial-gradient(rgba(92,100,111,0.5) 0%,rgba(31,35,40,1) 100%);
   	background: -o-radial-gradient(rgba(92,100,111,0.5) 0%,rgba(31,35,40,1) 100%);
   	background: -moz-radial-gradient(rgba(92,100,111,0.5) 0%,rgba(31,35,40,1) 100%);
@@ -50,7 +50,6 @@ body {
 	margin: auto;
 	margin-top: 100px;
 	background-color: #f1f3f3;
-	border: 1px solid black;
 	border-radius: 10px;
 	box-sizing: border-box;
 	text-align: center;
@@ -58,7 +57,7 @@ body {
 
 .login_name_pass_headers {
 	font-size: 20px;
-	display:inline-block;  /*needed for margin to work*/
+	display:inline-block;
 	margin-top: 15px;
 	margin-bottom: 5px;
 }
@@ -74,7 +73,7 @@ body {
 	color: black;
 	font-size: 25px;
 	text-decoration: none;
-	margin-top: 30px;
+	margin-top: 40px;
 	border: 1px solid black;
 	border-radius: 5px;
 	height: 35px;
@@ -88,7 +87,6 @@ body {
 	margin: auto;
 	margin-top: 15px;
 	background-color: #f1f3f3;
-	border: 1px solid black;
 	border-radius: 10px;
 	box-sizing: border-box;
 	text-align: center;
@@ -258,7 +256,7 @@ input.signup[type=text], input.signup[type=password] {
 	background: white;
 }
 
-.welcome_message_box {
+.work_box {
 	width:calc(100% - 150px);
 	height:calc(100% - 80px);
 	display: inline-block;
@@ -266,12 +264,22 @@ input.signup[type=text], input.signup[type=password] {
 	background: rgba(62,70,80,1);
 }
 
-.welcome_message_box h1{
+.work_box h1{
 	margin-top: 300px;
 	text-align: center;
 	font-size: 70px;
 	color: white;
 }
+
+.exercise_side_bar {
+	text-align: center;
+}
+
+.exercise_side_bar button {
+	margin-top: 10px;
+	width: 80%;
+}
+
 
 /* WELCOME CSS page __________________________________________________________________________________________________________________________*/
 
@@ -312,7 +320,7 @@ input.signup[type=text], input.signup[type=password] {
 	margin-top: 15px;
 }
 
-.myprofile_box {
+.work_box {
 	width:calc(100% - 150px);
 	height:calc(100% - 80px);
 	overflow: auto;
@@ -321,7 +329,7 @@ input.signup[type=text], input.signup[type=password] {
 	background: rgba(62,70,80,1);
 }
 
-.myprofile_box h2{
+.work_box h2{
 	font-size: 40px;
 	color: white;
 	text-align: center;
@@ -390,7 +398,7 @@ input.signup[type=text], input.signup[type=password] {
 
 /* EXERCISE CSS page __________________________________________________________________________________________________________________________*/
 
-.exercise_box {
+.work_box {
 	width:calc(100% - 150px);
 	height:calc(100% - 80px);
 	overflow: auto;
@@ -399,7 +407,7 @@ input.signup[type=text], input.signup[type=password] {
 	background: rgba(62,70,80,1);
 }
 
-.exercise_box h2{
+.work_box h2{
 	font-size: 40px;
 	color: white;
 	text-align: center;
@@ -468,3 +476,87 @@ input.signup[type=text], input.signup[type=password] {
 }
 
 /* EXERCISE CSS page __________________________________________________________________________________________________________________________*/
+
+
+
+
+
+
+
+
+
+
+
+/* NEW ISSUE CSS page __________________________________________________________________________________________________________________________*/
+
+.work_box {
+	width:calc(100% - 150px);
+	height:calc(100% - 80px);
+	overflow: auto;
+	display: inline-block;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+}
+
+.work_box h2{
+	font-size: 40px;
+	color: white;
+	text-align: center;
+}
+
+.new_issue_div {
+	width: 70%;
+	margin: auto;
+	border: 1px solid;
+	color: black;
+	box-sizing: border-box;
+	background: #f1f3f3;
+	margin-bottom: 30px;
+}
+
+.new_issue_div p {
+	margin-top: 30px;
+}
+
+.new_issue_exercise_div {
+	width: 15%;
+	background: white;
+	margin-left: 20px;
+	margin-bottom: 30px;
+}
+
+.new_issue_exercise_div p {
+	margin-top: 5px;
+}
+
+.issue_title_div {
+	width: 15%;
+	margin-left: 20px;
+	margin-bottom: 30px;
+}
+
+.issue_title_div p {
+	margin-bottom: 5px;
+}
+
+.description_div {
+	width: 15%;
+	margin-left: 20px;
+	margin-bottom: 30px;
+}
+
+.description_div p {
+	margin-bottom: 5px;
+}
+
+.post_new_button_div {
+	width: 70%;
+	margin: auto;
+	margin-bottom: 30px;
+}
+
+#post_btn_lisght{
+	float: right;
+}
+
+/* NEW ISSUE CSS page __________________________________________________________________________________________________________________________*/
