@@ -6,4 +6,5 @@ import com.codeassist.CodeAssist.Model.User;
 
 public interface UserRepo extends CrudRepository<User, Integer>{
 	User findByBcCode(String bcCode);
+	User findByBcCodeAndPassword(String bcCode, String password);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="www.thymeleaf.org">
 <head>
 	<title>Login</title>
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
@@ -20,17 +20,17 @@
 			<h1>Assist</h1>
 		</div>
 
-		<form class="signup" method="POST" action="signup" style="border:1px solid #ccc">
+		<form class="signup" method="POST" action="#" th:action="@{/}" th:object="${user}" style="border:1px solid #ccc">
 	        <div class="container">
 	          <h1>Login</h1>
 	          <hr>
 		      <span>
 		          <label for="user"><b>Bootcamp ID</b></label><br>
-		          <input class = "signup" type="text" placeholder="AAAA" name="user" required><br>
+		          <input class = "signup" type="text" placeholder="AAAA" name="user" th:field="*{bcCode}" required><br>
 		      </span>      
 	          <div>
 	              <label for="psw"><b>Password</b></label><br>
-	              <input class = "signup" type="password" placeholder="Enter Password" name="psw" required>
+	              <input class = "signup" type="password" placeholder="Enter Password" name="psw" th:field="*{password}" required>
 	          </div> 
 	          <div>      
 	            <button type="submit" class="signupbtn">Login</button>
