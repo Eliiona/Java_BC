@@ -3,9 +3,12 @@ package com.codeassist.CodeAssist.Model;
 import java.util.ArrayList;
 
 import javax.validation.constraints.Size;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-
+@Entity
+@Table(name = "UserTable")
 public class User {
 	@NotNull
 	@Size (min =4, max = 4)
