@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/home/student/JAVA_BC/Java_BC"/>
 		<item value="/home/student/JAVA_BC/Java_BC/CodeAssist"/>
 	</list>
 	<section name="ExternalProjectImportWizard">
@@ -14,5 +15,7 @@
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
 		</list>
+	</section>
+	<section name="NewWizardAction">
 	</section>
 </section>

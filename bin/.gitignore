@@ -8,6 +8,13 @@ target/
 .apt_generated
 .classpath
 .factorypath
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
 .project
 .settings
 .springBeans
@@ -29,3 +36,4 @@ build/
 
 ### VS Code ###
 .vscode/
+
