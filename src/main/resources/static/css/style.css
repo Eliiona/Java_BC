@@ -177,7 +177,6 @@ input.signup[type=text], input.signup[type=password] {
 #avatar_image {
 	display: inline-block;
 	vertical-align: top;
-	float: left;
 	margin: 0;
 }
 
@@ -185,7 +184,6 @@ input.signup[type=text], input.signup[type=password] {
 	font-size: 20px;
 	font-weight: bold;
 	display: inline-block;
-	float: left;
 	margin: 0;
 	margin-top: 10px;
 	padding-left: 20px;
@@ -227,7 +225,6 @@ input.signup[type=text], input.signup[type=password] {
 	height:calc(100% - 80px);
 	overflow: auto;
 	margin-top: -1px;
-	float: left;
 	border-right: 2px solid white;
 	display: inline-block;
 	box-sizing: border-box;
@@ -293,7 +290,6 @@ input.signup[type=text], input.signup[type=password] {
 	height:calc(100% - 80px);
 	overflow: auto;
 	margin-top: -1px;
-	float: left;
 	border-right: 2px solid white;
 	display: inline-block;
 	box-sizing: border-box;
@@ -382,12 +378,6 @@ input.signup[type=text], input.signup[type=password] {
 
 
 
-
-
-
-
-
-
 /* EXERCISE CSS page __________________________________________________________________________________________________________________________*/
 
 .exercise_box {
@@ -441,7 +431,6 @@ input.signup[type=text], input.signup[type=password] {
 
 .data_div{
 	display: inline-block;
-	float: right;
 	margin-top: 15px; 
 	margin-right: 20px;
 }
