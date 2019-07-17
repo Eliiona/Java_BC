@@ -18,12 +18,12 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id_user")
-	private int id_user;
+	private int idUser;
 	
 	@Column(name = "BC_Code")
 	@NotNull
 	@Size(min = 4, max = 4)
-	private String bc_code;
+	private String bcCode;
 	
 	@Column(name = "Name")
 	@NotNull
@@ -47,11 +47,11 @@ public class User {
 	private String password;
 	
 	//constructors
-	public User(String name, String surname, String password, String bc_code) {
+	public User(String name, String surname, String password, String bcCode) {
 		setName(name);
 		setSurname(surname);
 		setPassword(password);
-		setBcCode(bc_code);
+		setBcCode(bcCode);
 	}
 	
 	public User() {		
@@ -60,11 +60,11 @@ public class User {
 	
 	//set and get methods
 	public String getBcCode() {
-		return bc_code;
+		return bcCode;
 	}
 
-	public void setBcCode(String bc_code) {
-		this.bc_code = bc_code;
+	public void setBcCode(String bcCode) {
+		this.bcCode = bcCode;
 	}
 
 	public String getName() {
@@ -92,7 +92,7 @@ public class User {
 	}
 	
 	public int getId() {
-		return id_user;
+		return idUser;
 	}
 
 }
