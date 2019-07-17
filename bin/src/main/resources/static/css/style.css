@@ -1,0 +1,369 @@
+
+/* LOGIN CSS page ____________________________________________________________________________________________________________________________*/
+
+body {
+	font-family: Arial;
+}
+
+.background {
+	height: 98vh;
+	background: -webkit-radial-gradient(rgba(92,100,111,0.5) 0%,rgba(31,35,40,1) 100%);
+  	background: -o-radial-gradient(rgba(92,100,111,0.5) 0%,rgba(31,35,40,1) 100%);
+  	background: -moz-radial-gradient(rgba(92,100,111,0.5) 0%,rgba(31,35,40,1) 100%);
+  	background: radial-gradient(rgba(92,100,111,0.5) 0%,rgba(31,35,40,1) 100%);
+}
+
+.login_header_1 h1{
+	color: white;
+	font-size: 70px;
+	text-align: center;
+	margin: 0;
+	margin-top: 0;
+	margin-right: 150px;
+	padding-top: 130px;
+	text-shadow: 5px 5px 2px #333
+
+}
+
+.login_header_2 h1{
+	color: white;
+	font-size: 70px;
+	margin: 0;
+	margin-left: 100px;
+	margin-top: -10px;
+	text-align: center;
+	text-shadow: 5px 5px 2px #333
+}
+
+.login_box {
+	font-size: 16px;
+	width: 40%;
+	height: 250px;
+	margin: auto;
+	margin-top: 100px;
+	background-color: #f1f3f3;
+	border: 1px solid black;
+	border-radius: 10px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.login_name_pass_headers {
+	font-size: 20px;
+	display:inline-block;  /*needed for margin to work*/
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+.username_password_box {
+	width: 325px;
+	height: 25px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.sign_in_button {
+	color: black;
+	font-size: 25px;
+	text-decoration: none;
+	margin-top: 30px;
+	border: 1px solid black;
+	border-radius: 5px;
+	height: 35px;
+	background-color: #37a69b;
+}
+
+.signup_box {
+	font-size: 20px;
+	width: 40%;
+	height: 40px;
+	margin: auto;
+	margin-top: 15px;
+	background-color: #f1f3f3;
+	border: 1px solid black;
+	border-radius: 10px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.signup_box p{
+	margin: 0; 
+	padding-top: 9px;
+}
+
+/* LOGIN CSS page ____________________________________________________________________________________________________________________________*/
+
+/* SIGNUP CSS page __________________________________________________________________________________________________________________________*/
+body.background{
+	justify-content: center;
+	display: flex;
+}
+
+form.signup {
+	margin: 20px;
+	background-color: white;
+	justify-content: center;
+	display: flex;
+	width: 500px;
+	height: 710px;
+	border-radius: 10px;
+}
+
+* {box-sizing: border-box}
+hr {
+	border: 1px solid #f1f1f1;
+	margin-bottom: 25px;
+  }
+input.signup[type=text], input.signup[type=password] {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+  }
+  .container {
+	padding: 16px;
+  }
+
+  .cancelbtn, .signupbtn {
+	float: left;
+	width: 50%;
+  }
+  .clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+  }
+  @media screen and (max-width: 300px) {
+	.cancelbtn, .signupbtn {
+	  width: 100%;
+	}
+  }
+
+/* SIGNUP CSS page __________________________________________________________________________________________________________________________*/
+
+
+
+
+
+
+
+
+/* WELCOME CSS page __________________________________________________________________________________________________________________________*/
+
+body {
+	font-family: Arial;
+}
+
+.main_div {
+	height: 98vh;
+	width: 100%;
+	background: rgba(62,70,80,1);
+}
+
+.static_header_bar {
+	width: 100%;
+	height: 80px;
+	margin-top: 0px;
+	background-color: #f1f3f3;
+	border-bottom: 1px solid;
+	display: inline-block;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+}
+
+#avatar_image {
+	display: inline-block;
+	vertical-align: top;
+	float: left;
+	width: 79px;
+	margin: 0;
+}
+
+.profile_logout_buttons {
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	float: left;
+	margin: 0;
+	margin-top: 10px;
+	padding-left: 20px;
+}
+
+.profile_logout_buttons p{
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+.profile_logout_buttons a:hover {
+	color: black;
+}
+
+.profile_logout_buttons a {
+	color: white;
+	text-decoration: none;
+}
+
+.title {
+	font-size: 30px;
+	color: white;
+	padding-left: 20px;
+	text-align: center;
+}
+
+.title h4:nth-child(1){
+	margin: 0;
+	margin-right: 100px; 
+	margin-top: 5px;
+}
+
+.title h4:nth-child(2){
+	margin: 0;
+}
+
+.exercise_side_bar {
+	width: 150px;
+	height:calc(100% - 80px);
+	overflow: auto;
+	margin-top: -1px;
+	background-color: #f1f3f3;
+	float: left;
+	border-right: 1px solid;
+	display: inline-block;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+	text-align: center;
+}
+
+.exercise_side_bar p {
+	font-size: 20px;
+	color: grey;
+	margin: 0;
+	margin-top: 2px;
+	/*text-decoration: none;*/
+}
+
+.exercise_side_bar p:nth-child(1) {
+	margin-top: 15px;
+}
+
+.exercise_side_bar a {
+	/*text-decoration: none;*/
+	color: white;
+}
+
+.exercise_side_dar p:hover {
+	/*text-decoration: none;*/
+	color: black;
+	background: white;
+}
+
+.welcome_message_box {
+	width:calc(100% - 150px);
+	height:calc(100% - 80px);
+	background-color: #f1f3f3;
+	display: inline-block;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+}
+
+.welcome_message_box h1{
+	margin-top: 300px;
+	text-align: center;
+	font-size: 70px;
+	color: white;
+}
+
+/* WELCOME CSS page __________________________________________________________________________________________________________________________*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* MYPROFILE CSS page __________________________________________________________________________________________________________________________*/
+
+.myprofile_side_bar {
+	width: 150px;
+	height:calc(100% - 80px);
+	overflow: auto;
+	margin-top: -1px;
+	background-color: #f1f3f3;
+	float: left;
+	border-right: 1px solid;
+	display: inline-block;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+	text-align: center;
+}
+
+.myprofile_side_bar p {
+	font-size: 25px;
+	color: white;
+	margin: 0;
+	margin-top: 2px;
+}
+
+.myprofile_side_bar p:nth-child(1) {
+	margin-top: 15px;
+}
+
+.myprofile_box {
+	width:calc(100% - 150px);
+	height:calc(100% - 80px);
+	display: inline-block;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+}
+
+.myprofile_box h2{
+	font-size: 50px;
+	color: white;
+	text-align: center;
+}
+
+.myquestion_box {
+	width: 80%;
+	margin: auto;
+	border: 1px solid;
+	box-sizing: border-box;
+	background: rgba(62,70,80,1);
+}
+
+.myquestion_box h3{
+	font-size: 30px;
+	color: white;
+	/*display: inline-block;*/
+	text-align: center;
+}
+
+.myquestion_box p:nth-child(1){
+	color: red;
+	text-align: left;
+	display: inline-block;
+}
+.myquestion_box p:nth-child(2){
+	color: green;
+	text-align: left;
+	display: inline-block;
+}
+
+.myquestion_box p:nth-child(3){
+	color: blue;
+	text-align: right;
+}
+
+.myquestion_box p:nth-child(4){
+	text-align: right;
+}
+
+
+
+/* MYPROFILE CSS page __________________________________________________________________________________________________________________________*/
