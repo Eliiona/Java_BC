@@ -25,11 +25,10 @@ public class SignUpController {
 	
 	@GetMapping("/signup")
 	public String signupGet(User user, Model model) {
-		String message = "Please fill in this form to create an account.";
 		if(isRegistered) {
-			message = "User already exists";			
-		}
-		model.addAttribute("message", message);
+			String message = "User already exists";
+			model.addAttribute("message", message);
+		}	
 		return "sign-up";
 	}
 	
