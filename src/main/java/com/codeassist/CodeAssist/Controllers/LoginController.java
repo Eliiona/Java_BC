@@ -12,6 +12,7 @@ import com.codeassist.CodeAssist.Repo.UserRepo;
 @Controller
 public class LoginController {
 	private boolean incorrectCredentials = false;
+
 	
 	@Autowired
 	UserRepo userRepo;
@@ -19,8 +20,8 @@ public class LoginController {
 	@GetMapping("/")
 	public String loginGet(User user, Model model) {
 		if(incorrectCredentials) {
-			String message = "Username or password incorrect";
-			model.addAttribute(message, message);
+			String message = "Usename or password incorrect";
+			model.addAttribute("message", message);
 		}
 		return "login";
 	}
