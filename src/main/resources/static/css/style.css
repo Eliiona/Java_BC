@@ -115,9 +115,6 @@ form.login {
 	width: 100%;
   }
 
- .cheating_width_setter {
- 	color:;
- }
 
 /* LOGIN CSS page ____________________________________________________________________________________________________________________________*/
 
@@ -172,51 +169,9 @@ input.signup[type=text], input.signup[type=password] {
 	  width: 100%;
 	}
   }
-  
-  /* The message box is shown when the user clicks on the password field */
-#message {
-	display:none;
-	background: #f1f1f1;
-	color: #000;
-	position: relative;
-	padding: 20px;
-	margin-top: 10px;
-  }
-  
-  #message p {
-	padding: 10px 35px;
-	font-size: 18px;
-  }
-  
-  /* Add a green text color and a checkmark when the requirements are right */
-  .valid {
-	color: green;
-  }
-  
-  .valid:before {
-	position: relative;
-	left: -35px;
-	content: "&#10004;";
-  }
-  
-  /* Add a red text color and an "x" icon when the requirements are wrong */
-  .invalid {
-	color: red;
-  }
-  
-  .invalid:before {
-	position: relative;
-	left: -35px;
-	content: "&#10006;";
-  }
+
 
 /* SIGNUP CSS page __________________________________________________________________________________________________________________________*/
-
-
-
-
-
-
 
 
 /* WELCOME CSS page __________________________________________________________________________________________________________________________*/
@@ -366,6 +321,21 @@ input.signup[type=text], input.signup[type=password] {
 	box-sizing: border-box;
 	background: rgba(62,70,80,1);
 	text-align: center;
+}
+
+.activity{
+	width: 100%;
+	background-color: rgb(202, 211, 203);
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.activity:hover{
+	background-color: #f1f3f3;
 }
 
 .myprofile_side_bar p {
@@ -548,10 +518,47 @@ input.signup[type=text], input.signup[type=password] {
 
 /* NEW ISSUE CSS page __________________________________________________________________________________________________________________________*/
 
+form.new_issue {
+	margin: 10px;
+	background-color: rgba(255, 255, 255, 0.76);
+	justify-content: center;
+	display: inline-block;
+	padding: 20px;
+	border-radius: 10px;
+}
+input.new_issue_in {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+.new_issue_txt{
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+  
+.new_issue_lbl {
+	text-align: left;
+	font-size: 20px;
+	font-weight: 700;
+}
+.new_issue_act {
+	text-align: left;
+	font-size: 16px;
+	margin-left: 10px;
+}
 .work_box {
 	width:calc(100% - 150px);
 	height:calc(100% - 80px);
 	overflow: auto;
+	text-align: center;
 	display: inline-block;
 	box-sizing: border-box;
 	background: rgba(62,70,80,1);
@@ -577,12 +584,6 @@ input.signup[type=text], input.signup[type=password] {
 	margin-top: 30px;
 }
 
-.new_issue_exercise_div {
-	width: 15%;
-	background: white;
-	margin-left: 20px;
-	margin-bottom: 30px;
-}
 
 .new_issue_exercise_div p {
 	margin-top: 5px;
@@ -590,7 +591,6 @@ input.signup[type=text], input.signup[type=password] {
 
 .issue_title_div {
 	width: 15%;
-	margin-left: 20px;
 	margin-bottom: 30px;
 }
 
@@ -600,7 +600,6 @@ input.signup[type=text], input.signup[type=password] {
 
 .description_div {
 	width: 15%;
-	margin-left: 20px;
 	margin-bottom: 30px;
 }
 
