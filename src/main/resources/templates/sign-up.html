@@ -9,7 +9,7 @@
 </head>
 <body class="background">
   <div>
-    <form name="form" class="signup" method="POST" action="" onsubmit="return validate()">
+    <form name="form" class="signup" method="POST" action="">
         <div class="container">
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account.</p>
@@ -33,18 +33,20 @@
           <div>
               <label for="psw"><b>Password</b></label><br>
               <input id = "psw" class = "signup" type="password" placeholder="Enter Password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" 
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 characters up to 20" required>
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 characters up to 20" required 
+              oninput="check(document.getElementById('psw2'))">
           </div>
       
           <div>
               <label for="psw2"><b>Repeat Password</b></label><br>
-              <input id = "psw2" class = "signup" type="password" placeholder="Repeat Password" name="psw2" pattern=document.form.psw.value 
+              <input id = "psw2" class = "signup" type="password" placeholder="Repeat Password" name="psw2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" 
               title="Must match given password" oninput="check(this)">
           </div>
           <script language='javascript' type='text/javascript'>
             function check(input) {
+                // Checks passed object value against object with id=psw, returns invalidity
                 if (input.value != document.getElementById('psw').value) {
-                    input.setCustomValidity('Password Must be Matching.');
+                    input.setCustomValidity('Password must be matching');
                 } else {
                     // input is valid -- reset the error message
                     input.setCustomValidity('');
@@ -65,6 +67,5 @@
             window.alert(showtext);
         }
     </script>
-    <script> 
 </body>
 </html>
