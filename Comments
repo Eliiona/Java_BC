@@ -7,6 +7,7 @@ spring.io/tools
 https://www.baeldung.com/spring-security-login-error-handling-localization
 http://www.springboottutorial.com/creating-web-application-with-spring-boot
 https://www.springboottutorial.com/spring-boot-and-h2-in-memory-database
+https://github.com/hellokoding/hellokoding-courses/tree/master/springboot-examples/springboot-registration-login/src/main
 
 Instructions for git:
 1) Open console in directory where you're going to make the project
