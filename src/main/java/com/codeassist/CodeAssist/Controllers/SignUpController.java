@@ -28,7 +28,7 @@ public class SignUpController {
 	
 	@PostMapping("/signup")
 	public String signupPost(User user) {
-		if(userRepo.findByBcCode(user.getBcCode()) != null){
+		if(userRepo.findByUsername(user.getUsername()) != null){
 			isRegistered = true;
 			return "redirect:/signup";
 		}

@@ -3,19 +3,25 @@ package com.codeassist.CodeAssist.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.codeassist.CodeAssist.Model.User;
 import com.codeassist.CodeAssist.Repo.UserRepo;
+import com.codeassist.CodeAssist.Service.SecurityService;
+import com.codeassist.CodeAssist.Service.UserService;
+import com.codeassist.CodeAssist.Validator.UserValidator;
+
 
 @Controller
 public class LoginController {
-	private boolean incorrectCredentials = false;
+	/*private boolean incorrectCredentials = false;
 	@Autowired
 	UserRepo userRepo;
 	
-	@GetMapping("/")
+	@GetMapping("/login")
 	public String loginGet(User user, Model model) {
 		if(incorrectCredentials) {
 			String message = "Usename or password incorrect";
@@ -24,9 +30,9 @@ public class LoginController {
 		return "login";
 	}
 
-	@PostMapping("/")
+	@PostMapping("/login")
 	public String loginPost(User user) {
-		if(userRepo.findByBcCodeAndPassword(user.getBcCode(), user.getPassword()) != null) {
+		if(userRepo.findByUsernameAndPassword(user.getUsername(), user.getPassword()) != null) {
 			return "redirect:/MyProfile";
 		}
 		else {
@@ -34,5 +40,51 @@ public class LoginController {
 			return "redirect:/";
 		}
 
-	}
+	}*/
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private SecurityService securityService;
+
+    @Autowired
+    private UserValidator userValidator;
+
+    @GetMapping("/registration")
+    public String registration(Model model) {
+        model.addAttribute("userForm", new User());
+
+        return "registration";
+    }
+
+    @PostMapping("/registration")
+    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+        userValidator.validate(userForm, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            return "registration";
+        }
+
+        userService.save(userForm);
+
+        securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
+
+        return "redirect:/welcome";
+    }
+
+    @GetMapping("/login")
+    public String login(Model model, String error, String logout) {
+        if (error != null)
+            model.addAttribute("error", "Your username and password is invalid.");
+
+        if (logout != null)
+            model.addAttribute("message", "You have been logged out successfully.");
+
+        return "login";
+    }
+
+    @GetMapping({"/", "/welcome"})
+    public String welcome(Model model) {
+        return "welcome";
+    }
 }

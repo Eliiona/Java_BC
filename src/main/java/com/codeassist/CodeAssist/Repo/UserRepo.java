@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import com.codeassist.CodeAssist.Model.User;
 
 public interface UserRepo extends CrudRepository<User, Integer>{
-	User findByBcCode(String bcCode);
-	User findByBcCodeAndPassword(String bcCode, String password);
+	User findByUsername(String username);
+	User findByUsernameAndPassword(String usernmae, String password);
 }
