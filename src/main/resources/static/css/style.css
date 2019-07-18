@@ -186,6 +186,31 @@ input.signup[type=text], input.signup[type=password] {
 	box-sizing: border-box;
 	background: rgba(62,70,80,1);
 }
+#new_issue_button{
+	top: 0;
+	right: 0;
+}
+#my_issue_button{
+	top: 0;
+	left: 0;
+}
+
+.navigation:hover{
+	background-color: #f1f3f3;
+}
+.navigation{
+	height: 80px;
+	width: 150px;
+	background-color: rgb(202, 211, 203);
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 20px;
+	cursor: pointer;
+	float: right;
+	position: absolute;
+}
 
 #avatar_image {
 	display: inline-block;
