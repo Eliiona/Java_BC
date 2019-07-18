@@ -107,17 +107,13 @@ form.login {
 	justify-content: center;
 	display: flex;
 	width: 500px;
-	height: 500px;
+	height: 550px;
 	border-radius: 10px;
 }
 
 .loginbtn {
 	width: 100%;
   }
-
- .cheating_width_setter {
- 	color:;
- }
 
 /* LOGIN CSS page ____________________________________________________________________________________________________________________________*/
 
@@ -173,43 +169,6 @@ input.signup[type=text], input.signup[type=password] {
 	}
   }
   
-  /* The message box is shown when the user clicks on the password field */
-#message {
-	display:none;
-	background: #f1f1f1;
-	color: #000;
-	position: relative;
-	padding: 20px;
-	margin-top: 10px;
-  }
-  
-  #message p {
-	padding: 10px 35px;
-	font-size: 18px;
-  }
-  
-  /* Add a green text color and a checkmark when the requirements are right */
-  .valid {
-	color: green;
-  }
-  
-  .valid:before {
-	position: relative;
-	left: -35px;
-	content: "&#10004;";
-  }
-  
-  /* Add a red text color and an "x" icon when the requirements are wrong */
-  .invalid {
-	color: red;
-  }
-  
-  .invalid:before {
-	position: relative;
-	left: -35px;
-	content: "&#10006;";
-  }
-
 /* SIGNUP CSS page __________________________________________________________________________________________________________________________*/
 
 
@@ -219,8 +178,10 @@ input.signup[type=text], input.signup[type=password] {
 
 
 
-/* WELCOME CSS page __________________________________________________________________________________________________________________________*/
 
+
+/* WELCOME CSS page __________________________________________________________________________________________________________________________*/
+			
 .static_header_bar {
 	width: 100%;
 	height: 80px;
@@ -254,7 +215,7 @@ input.signup[type=text], input.signup[type=password] {
 }
 
 .profile_logout_buttons a:hover {
-	color: black;
+	color: rgba(255, 255, 255, 0.76);
 }
 
 .profile_logout_buttons a {
@@ -297,7 +258,6 @@ input.signup[type=text], input.signup[type=password] {
 	color: grey;
 	margin: 0;
 	margin-top: 2px;
-	/*text-decoration: none;*/
 }
 
 .exercise_side_bar p:nth-child(1) {
@@ -305,12 +265,10 @@ input.signup[type=text], input.signup[type=password] {
 }
 
 .exercise_side_bar a {
-	/*text-decoration: none;*/
 	color: white;
 }
 
 .exercise_side_dar p:hover {
-	/*text-decoration: none;*/
 	color: black;
 	background: white;
 }
@@ -323,13 +281,6 @@ input.signup[type=text], input.signup[type=password] {
 	background: rgba(62,70,80,1);
 }
 
-.work_box h1{
-	margin-top: 300px;
-	text-align: center;
-	font-size: 70px;
-	color: white;
-}
-
 .exercise_side_bar {
 	text-align: center;
 }
@@ -339,11 +290,7 @@ input.signup[type=text], input.signup[type=password] {
 	width: 80%;
 }
 
-
 /* WELCOME CSS page __________________________________________________________________________________________________________________________*/
-
-
-
 
 
 
