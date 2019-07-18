@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class MyProfile {
+public class MyProfileController {
 	@GetMapping("/MyProfile")
 	public String signup(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
 			Model model) {

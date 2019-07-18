@@ -34,5 +34,10 @@ List of comands - https://gist.github.com/davfre/8313299
 
 uploaded from Elinas home laptop
 
-
+    <script>
+        var showtext = "[[${message}]]";
+        if (showtext != ""){
+            window.alert(showtext);
+        }
+        </script>
 
