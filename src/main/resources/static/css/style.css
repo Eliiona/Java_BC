@@ -1,6 +1,10 @@
 
 /* LOGIN CSS page ____________________________________________________________________________________________________________________________*/
 
+html {
+	height: 100%;
+}
+
 body {
 	font-family: Arial;
 	margin: 0;
@@ -28,7 +32,7 @@ body {
 	margin: 0;
 	margin-top: 0;
 	margin-right: 150px;
-	padding-top: 130px;
+	padding-top: 30px;
 	text-shadow: 5px 5px 2px #333
 
 }
@@ -96,6 +100,24 @@ body {
 	margin: 0; 
 	padding-top: 9px;
 }
+
+form.login {
+	margin: 10px;
+	background-color: rgba(255, 255, 255, 0.76);
+	justify-content: center;
+	display: flex;
+	width: 500px;
+	height: 500px;
+	border-radius: 10px;
+}
+
+.loginbtn {
+	width: 100%;
+  }
+
+ .cheating_width_setter {
+ 	color:;
+ }
 
 /* LOGIN CSS page ____________________________________________________________________________________________________________________________*/
 
@@ -175,6 +197,7 @@ input.signup[type=text], input.signup[type=password] {
 #avatar_image {
 	display: inline-block;
 	vertical-align: top;
+	float: left;
 	margin: 0;
 }
 
@@ -182,6 +205,7 @@ input.signup[type=text], input.signup[type=password] {
 	font-size: 20px;
 	font-weight: bold;
 	display: inline-block;
+	float: left;
 	margin: 0;
 	margin-top: 10px;
 	padding-left: 20px;
@@ -223,6 +247,7 @@ input.signup[type=text], input.signup[type=password] {
 	height:calc(100% - 80px);
 	overflow: auto;
 	margin-top: -1px;
+	float: left;
 	border-right: 2px solid white;
 	display: inline-block;
 	box-sizing: border-box;
@@ -298,6 +323,7 @@ input.signup[type=text], input.signup[type=password] {
 	height:calc(100% - 80px);
 	overflow: auto;
 	margin-top: -1px;
+	float: left;
 	border-right: 2px solid white;
 	display: inline-block;
 	box-sizing: border-box;
@@ -386,6 +412,12 @@ input.signup[type=text], input.signup[type=password] {
 
 
 
+
+
+
+
+
+
 /* EXERCISE CSS page __________________________________________________________________________________________________________________________*/
 
 .work_box {
@@ -439,6 +471,7 @@ input.signup[type=text], input.signup[type=password] {
 
 .data_div{
 	display: inline-block;
+	float: right;
 	margin-top: 15px; 
 	margin-right: 20px;
 }
