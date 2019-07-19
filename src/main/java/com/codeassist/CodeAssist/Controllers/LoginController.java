@@ -17,30 +17,7 @@ import com.codeassist.CodeAssist.Validator.UserValidator;
 
 @Controller
 public class LoginController {
-	/*private boolean incorrectCredentials = false;
-	@Autowired
-	UserRepo userRepo;
-	
-	@GetMapping("/login")
-	public String loginGet(User user, Model model) {
-		if(incorrectCredentials) {
-			String message = "Usename or password incorrect";
-			model.addAttribute("message", message);
-		}
-		return "login";
-	}
 
-	@PostMapping("/login")
-	public String loginPost(User user) {
-		if(userRepo.findByUsernameAndPassword(user.getUsername(), user.getPassword()) != null) {
-			return "redirect:/MyProfile";
-		}
-		else {
-			incorrectCredentials = true;
-			return "redirect:/";
-		}
-
-	}*/
     @Autowired
     private UserService userService;
 

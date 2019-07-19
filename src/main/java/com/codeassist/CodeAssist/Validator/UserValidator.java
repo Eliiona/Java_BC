@@ -23,7 +23,7 @@ public class UserValidator implements Validator{
 
 	    @Override
 	    public void validate(Object o, Errors errors) {
-	        User user = (com.codeassist.CodeAssist.Model.User) o;
+	        User user = (User) o;
 
 	        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
 	        if (user.getUsername().length() < 6 || user.getUsername().length() > 32) {

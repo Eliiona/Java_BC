@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -36,8 +37,8 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private Collection<Reply> replysForIssue;
 	
-    @ManyToMany
-    private Set<Role> roles;
+    @OneToOne
+    private Role role;
 	
 	@Column(name = "Password")
 	private String password;
@@ -101,12 +102,12 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
     
-    public Set<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
 }

@@ -1,9 +1,9 @@
 package com.codeassist.CodeAssist.Repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.codeassist.CodeAssist.Model.Role;
 
-public interface RoleRepo extends JpaRepository<Role, Integer>{
+public interface RoleRepo extends CrudRepository<Role, Integer>{
 
 }

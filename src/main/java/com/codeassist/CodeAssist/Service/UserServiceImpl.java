@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.codeassist.CodeAssist.Model.Role;
 import com.codeassist.CodeAssist.Model.User;
 import com.codeassist.CodeAssist.Repo.RoleRepo;
 import com.codeassist.CodeAssist.Repo.UserRepo;
@@ -24,8 +25,11 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
     public void save(User user) {
+		Role userRole = new Role();
+		userRole.setName("User");
+		roleRepo.save(userRole);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(new HashSet<>(roleRepo.findAll()));
+        user.setRole(roleRepo.findAll().iterator().next());
         userRepo.save(user);
     }
 
