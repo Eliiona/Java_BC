@@ -1,5 +1,7 @@
 package com.codeassist.CodeAssist.Controllers;
 
+import java.util.Iterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -75,7 +77,9 @@ public class UserController {
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	model.addAttribute("issueList", issueRepo.findByUser(loggedInUser));
-
+    	for (Issue i : issueRepo.findByUser(loggedInUser)) {
+			System.out.println(i.getTitle());
+		}
         return "myProfile";
     }
 }
