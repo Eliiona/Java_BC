@@ -43,7 +43,7 @@ public class Issue {
 	
 	@NotNull
 	@Column(name = "Exercise")
-	private int exercise;
+	public int exercise;
 	
 	@ManyToOne
 	@JoinColumn(name = "Id_user")
