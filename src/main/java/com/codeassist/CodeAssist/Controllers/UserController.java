@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.codeassist.CodeAssist.Model.User;
+import com.codeassist.CodeAssist.Repo.ActivityRepo;
+import com.codeassist.CodeAssist.Repo.IssueRepo;
 import com.codeassist.CodeAssist.Repo.UserRepo;
 import com.codeassist.CodeAssist.Service.SecurityService;
 import com.codeassist.CodeAssist.Service.UserService;
@@ -16,7 +18,16 @@ import com.codeassist.CodeAssist.Validator.UserValidator;
 
 
 @Controller
-public class LoginController {
+public class UserController {
+	@Autowired
+	private UserRepo userRepo;
+	
+	@Autowired
+	private IssueRepo issueRepo;
+	
+	@Autowired
+	private ActivityRepo activityRepo;
+	
     @Autowired
     private UserService userService;
 
@@ -45,7 +56,7 @@ public class LoginController {
 
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
 
-        return "redirect:/welcome";
+        return "redirect:/myProfile";
     }
 
     @GetMapping("/login")
@@ -59,8 +70,12 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping({"/", "/welcome"})
+    @GetMapping({"/", "/myProfile"})
     public String welcome(Model model) {
-        return "welcome";
+    	model.addAttribute("activities", activityRepo.findAll());
+    	String loggedInUsername = securityService.findLoggedInUsername();
+    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
+    	model.addAttribute("issues", issueRepo.findByUserId(loggedInUser));
+        return "myProfile";
     }
 }

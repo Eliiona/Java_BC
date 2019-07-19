@@ -1,5 +1,7 @@
 package com.codeassist.CodeAssist.Model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
@@ -37,7 +39,7 @@ public class Issue {
 	
 	@NotNull
 	@Column(name = "Date")
-	private Date date;
+	private String date;
 	
 	@NotNull
 	@Column(name = "Exercise")
@@ -54,7 +56,7 @@ public class Issue {
 		setTitle(title);
 		setDescription(description);
 		setExercise(exercise);
-		date = new Date();
+		setDate();
 		isSolved = false;
 	}
 	
@@ -99,12 +101,14 @@ public class Issue {
 		return id_issue;
 	}
 
-	public Date getDate() {
+	public String getDate() {
+		
 		return date;
 	}
 	
-	
-	
-	
-	
+	public void setDate() {
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm MM/dd");
+		Date dateNow = new Date();
+		date = dateFormat.format(dateNow);
+	}	
 }

@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import com.codeassist.CodeAssist.Model.User;
+
 @Service
 public class SecurityServiceImpl implements SecurityService{
 	 @Autowired
@@ -25,7 +27,7 @@ public class SecurityServiceImpl implements SecurityService{
 
 	        return null;
 	    }
-
+	 
 	    @Override
 	    public void autoLogin(String username, String password) {
 	        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
