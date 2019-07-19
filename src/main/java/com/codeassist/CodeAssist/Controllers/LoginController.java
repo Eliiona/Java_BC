@@ -17,7 +17,6 @@ import com.codeassist.CodeAssist.Validator.UserValidator;
 
 @Controller
 public class LoginController {
-
     @Autowired
     private UserService userService;
 

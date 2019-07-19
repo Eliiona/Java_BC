@@ -2,48 +2,67 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <title>Sign up</title>
-<!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/style.css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
-
 </head>
 <body class="background">
   <div>
-    <form name="form" class="signup" method="POST" action="#" th:action="@{/signup}" th:object="${user}" style="border:1px solid #ccc" onsubmit="return validate()">
+
+    <div class="login_header_1">
+      <h1>Code</h1>
+    </div>
+
+    <div class="login_header_2">
+      <h1>Assist</h1>
+    </div>
+
+    <form name="form" class="signup" method="POST" action="#" th:action="@{/signup}" th:object="${user}">
         <div class="container">
           <h1>Sign Up</h1>
           <p>Please fill in this form to create an account.</p>
           <hr>
       <span>
           <label for="user"><b>Bootcamp ID </b></label><br>
-          <input class = "signup" type="text" placeholder="AAAA" name="user" th:field="*{bcCode}" required><br>
+          <input class = "signup" type="text" placeholder="AAAA" name="user" required pattern="[a-zA-Z0-9]{4}" 
+          title="Must match given bootcamp code pattern"><br>
       </span>
       <div>
           <label for="name"><b>Name </b></label><br>
-          <input class = "signup" type="text" placeholder="Enter your name" name="name" th:field="*{name}" required>
+          <input class = "signup" type="text" placeholder="Enter your name" name="name" required pattern="^[A-Z][a-zA-Z]{1,19}" 
+          title="Must 2-20 letters long containing only latin letters, starting with capital letter.">
       </div>
           <div>
             <label for="lastname"><b>Surname </b></label><br>
-            <input class = "signup" type="text" placeholder="Enter your surname" name="lastname" th:field="*{surname}" required>
+            <input class = "signup" type="text" placeholder="Enter your surname" name="lastname" required pattern="^[A-Z][a-zA-Z]{1,19}" 
+            title="Must 2-20 letters long containing only latin letters, starting with capital letter.">
           </div>
       
           <div>
               <label for="psw"><b>Password</b></label><br>
-              <input class = "signup" type="password" placeholder="Enter Password" name="psw" th:field="*{password}" required>
+              <input id = "psw" class = "signup" type="password" placeholder="Enter Password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" 
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 characters up to 20" required 
+              oninput="check(document.getElementById('psw2'))">
           </div>
       
           <div>
-              <label for="psw-repeat"><b>Repeat Password</b></label><br>
-              <input class = "signup" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+              <label for="psw2"><b>Repeat Password</b></label><br>
+              <input id = "psw2" class = "signup" type="password" placeholder="Repeat Password" name="psw2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" 
+              title="Must match given password" oninput="check(this)">
           </div>
-      
-          <label>
-            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-          </label>
-      
-      
+          <script language='javascript' type='text/javascript'>
+            function check(input) {
+                // Checks passed object value against object with id=psw, returns invalidity
+                if (input.value != document.getElementById('psw').value) {
+                    input.setCustomValidity('Password must be matching');
+                } else {
+                    // input is valid -- reset the error message
+                    input.setCustomValidity('');
+                }
+            }
+          </script>
           <div class="clearfix">
             <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
             <button type="submit" class="signupbtn">Sign Up</button>
@@ -52,67 +71,11 @@
       </form> 
     </div>
     <script>
+        //Takes message from Thymeleaf and displays it. Triggered when user is already registered with that code
         var showtext = "[[${message}]]";
-        if (showtext != ""){
+        if (showtext != "[[${message}]]"){
             window.alert(showtext);
         }
-	</script>
-    <script> 
-        function validate()                                    
-        { 
-            var code = document.form.user.value;               
-            var name = document.form.name.value;    
-            var lastname = document.form.lastname.value;  
-            var password =  document.form.password.value;
-            var repeat = document.form['psw-repeat'].value;
-
-            console.info("Code: "+code);
-            console.info("Name: "+name);
-            console.info("Lastname: "+lastname);
-            console.info("Password: "+password);
-            console.info("Re-entered: "+repeat);
-
-
-            var codereg = /^\w{4}$/;
-            var namereg = /^[a-zA-Z]{2,20}$/;   
-           
-            if (codereg.test(code) == false)                                  
-            { 
-                console.log(code + " Not valid")
-                window.alert("Please enter a valid bootcamp code"); 
-                user.focus(); 
-                return false; 
-            } 
-           
-            if (name.value == "")                               
-            { 
-                alert("Please enter your name"); 
-                name.focus();
-                return false; 
-            } 
-               
-            if (lastname.value == "")                                   
-            { 
-                window.alert("Please enter your lastname"); 
-                lastname.focus(); 
-                return false; 
-            }
-           
-            if (password.value == "")                        
-            { 
-                window.alert("Please enter your password"); 
-                psw.focus(); 
-                return false; 
-            }
-           
-            if (repeat == "")                  
-            { 
-                alert("Please enter your course."); 
-                'psw-repeat'.focus(); 
-                return false; 
-            } 
-           
-            return true; 
-        }</script> 
+    </script>
 </body>
 </html>

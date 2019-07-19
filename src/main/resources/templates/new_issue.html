@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
 	<title>New Issue</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="../static/css/style.css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -10,81 +9,65 @@
 <body>
 	<div class="main_div">
 		<div class="static_header_bar">
-			<div id="avatar_image">
-				<a href=""><img src="../static/avatar_images/kenny.jpg" style="width:78px;height:78px;display: inline-block;"></a>
-	    	</div>
-
-	        <div class="profile_logout_buttons">
-	        	<p><a href="">My profile</a></p>
-	        	<p><a href="">Log out</a></p>
-	        </div>
+			<a href="MyProfile.html"><button id="my_issues_button" class="navigation">My Issues</button></a>
 
 	        <div class="title">
 	        	<h4>Code</h4>
 	        	<h4>Assist</h4>
-	    	</div>
+			</div>
+			<a href="new_issue.html"><button id="new_issue_button" class="navigation">Create New Issue</button></a>
 		</div>
 
 		<div class="exercise_side_bar">
-			<p><a href="">Activity 01</a></p>
-			<p><a href="">Activity 02</a></p>
-			<p><a href="">Activity 03</a></p>
-			<p><a href="">Activity 04</a></p>
-			<p><a href="">Activity 05</a></p>
-			<p><a href="">Activity 06</a></p>
-			<p><a href="">Activity 07</a></p>
-			<p><a href="">Activity 08</a></p>
-			<p><a href="">Activity 09</a></p>
-			<p><a href="">Activity 10</a></p>
-			<p><a href="">Activity 11</a></p>
-			<p><a href="">Activity 12</a></p>
-			<p><a href="">Activity 13</a></p>
-			<p><a href="">Activity 14</a></p>
-			<p><a href="">Activity 15</a></p>
-			<p><a href="">Activity 16</a></p>
-			<p><a href="">Activity 17</a></p>
-			<p><a href="">Activity 18</a></p>
-			<p><a href="">Extra 01</a></p>
-			<p><a href="">Extra 02</a></p>
-			<p><a href="">Extra 03</a></p>
-			<p><a href="">Extra 04</a></p>
-			<p><a href="">Extra 05</a></p>
-			<p><a href="">Extra 06</a></p>
-			<p><a href="">Extra 07</a></p>
-			<p><a href="">Extra 08</a></p>
-			<p><a href="">Extra 09</a></p>
-			<p><a href="">Extra 10</a></p>
-			<p><a href="">Extra 11</a></p>
-			<p><a href="">Extra 12</a></p>
+			<div id="buttonList"></div>
 		</div>
 
 		<div class="work_box">
 			<h2>Open new issue</h2>
 
-			<div class="new_issue_div">		
-				<p style="margin-left: 20px; margin-bottom: 0px;">Exercise:</p>
-				<div class="new_issue_exercise_div">
-		        	<p>Activity 08</p>
-		        </div>
+			<form class="new_issue" name="form" method="POST" action="#" th:action="@{/newissue}" th:object="${issue}">		
+				<p class="new_issue_lbl" style="display: block">Exercise:
+				<select name ="activity" id="options"></select></p>
 		
-				<div class="issue_title_div">
+				<div class="new_issue_lbl">
 					<p>Issue title:</p>
-					<input type="text" name="title" placeholder="title">
+					<input class= "new_issue_in" type="text" name="title" placeholder="Issue title" required>
 				</div>	
 
-				<div class="description_div">
-					<p>Description:</p>
-					<textarea rows="8" cols="100">w
-					</textarea> 
+				<div >
+					<p class="new_issue_lbl">Description:</p>
+					<textarea class= "new_issue_txt"rows="8" cols="100" form = "form" placeholder="Write the description of the issue.." 
+					required></textarea> 
 				</div>
-
-			</div>
-
-			<div class="post_new_button_div">
-	        	<button type="button" id="post_btn_lisght" class="btn btn-light">Post</button>
-	        </div>
-
+				<button type="submit" class="postbtn">Post issue</button>
+			</form>
 		</div>
 	</div>
+	<script>
+		var activities = [];
+		var html = '';
+		var act = '';
+		for (var i = 1; i<10;i++){
+			html +='<a href="Activity0'+i+'"><button class="activity">Activity 0'+i+'</button></a><br>';
+			activities.push('Activity 0'+i);
+		}
+		for (var i = 10; i<19;i++){
+			html +='<a href="Activity'+i+'"><button class="activity">Activity '+i+'</button></a><br>';
+			activities.push('Activity '+i);
+		}
+		for (var i = 1; i<10;i++){
+			html +='<a href="Extra0'+i+'"><button class="activity">Extra 0'+i+'</button></a><br>';
+			activities.push('Extra 0'+i);
+		}
+		for (var i = 10; i<13;i++){
+			html +='<a href="Extra'+i+'"><button class="activity">Extra '+i+'</button></a><br>';
+			activities.push('Extra '+i);
+		}
+		activities.forEach(function(activity){
+			act +='<option value="'+activity+'">'+activity+'</option>';
+		});
+		document.getElementById("options").innerHTML = act;
+		document.getElementById("buttonList").innerHTML = html;
+	</script>
 </body>
 </html>
