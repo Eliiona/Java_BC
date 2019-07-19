@@ -1,38 +1,34 @@
 package com.codeassist.CodeAssist.Model;
 import java.util.Collection;
-
-import javax.validation.constraints.Size;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Transient;
+
 
 @Entity
 @Table(name = "UserTable")
 public class User {
 	//variables
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Id_user")
 	private int idUser;
 	
-	@Column(name = "BC_Code")
-	@NotNull
-	@Size(min = 4, max = 4)
-	private String bcCode;
+	@Column(name = "Username")
+	private String username;
 	
 	@Column(name = "Name")
-	@NotNull
-	@Size(min = 3, max = 20)
 	private String name;
 	
 	@Column(name = "Surname")
-	@NotNull
-	@Size(min = 3, max = 20)
 	private String surname;
 	
 	@OneToMany(mappedBy = "user")
@@ -41,17 +37,21 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private Collection<Reply> replysForIssue;
 	
+    @OneToOne
+    private Role role;
+	
 	@Column(name = "Password")
-	@NotNull
-	@Size(min = 6, max = 20)
 	private String password;
+	
+	@Transient
+	private String passwordConfirm;
 	
 	//constructors
 	public User(String name, String surname, String password, String bcCode) {
 		setName(name);
 		setSurname(surname);
 		setPassword(password);
-		setBcCode(bcCode);
+		setUsername(bcCode);
 	}
 	
 	public User() {		
@@ -59,12 +59,12 @@ public class User {
 	
 	
 	//set and get methods
-	public String getBcCode() {
-		return bcCode;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setBcCode(String bcCode) {
-		this.bcCode = bcCode;
+	public void setUsername(String bcCode) {
+		this.username = bcCode;
 	}
 
 	public String getName() {
@@ -94,5 +94,20 @@ public class User {
 	public int getId() {
 		return idUser;
 	}
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+    
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
 }
