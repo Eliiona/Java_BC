@@ -41,9 +41,9 @@ public class Issue {
 	@Column(name = "Date")
 	private String date;
 	
-	@NotNull
-	@Column(name = "Exercise")
-	private int exercise;
+	@ManyToOne
+	@JoinColumn(name = "Id_Activity")
+	private Activity activity;
 	
 	@ManyToOne
 	@JoinColumn(name = "Id_user")
@@ -52,10 +52,10 @@ public class Issue {
 	@OneToMany(mappedBy = "issue")
 	private Collection<Reply> replysForIssue;
 	
-	public Issue(String title, String description, int exercise) {
+	public Issue(String title, String description, Activity activity) {
 		setTitle(title);
 		setDescription(description);
-		setExercise(exercise);
+		setActivity(activity);
 		setDate();
 		isSolved = false;
 	}
@@ -89,12 +89,12 @@ public class Issue {
 		this.description = description;
 	}
 
-	public int getExercise() {
-		return exercise;
+	public Activity getExercise() {
+		return activity;
 	}
 
-	public void setExercise(int exercise) {
-		this.exercise = exercise;
+	public void setActivity(Activity activity) {
+		this.activity = activity;
 	}
 
 	public int getId_issue() {
@@ -110,5 +110,11 @@ public class Issue {
 		DateFormat dateFormat = new SimpleDateFormat("HH:mm MM/dd");
 		Date dateNow = new Date();
 		date = dateFormat.format(dateNow);
+	}
+
+	public Activity getActivity() {
+		return activity;
 	}	
+	
+	
 }

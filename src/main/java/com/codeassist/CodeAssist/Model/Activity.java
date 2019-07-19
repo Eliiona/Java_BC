@@ -1,5 +1,7 @@
 package com.codeassist.CodeAssist.Model;
 
+import java.util.Collection;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,10 +9,14 @@ import javax.persistence.*;
 public class Activity {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Id_Activity")
     private int id;
 	
 	@Column(name = "Name")
 	private String name;
+	
+	@OneToMany(mappedBy = "activity")
+	private Collection<Issue> issueForActivity;
 
 	public int getId() {
 		return id;
@@ -27,7 +33,6 @@ public class Activity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+		
 }
 
