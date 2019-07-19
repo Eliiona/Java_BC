@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.codeassist.CodeAssist.Model.Issue;
 import com.codeassist.CodeAssist.Model.User;
 import com.codeassist.CodeAssist.Repo.ActivityRepo;
 import com.codeassist.CodeAssist.Repo.IssueRepo;
@@ -53,9 +54,7 @@ public class UserController {
         }
 
         userService.save(userForm);
-
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-
         return "redirect:/myProfile";
     }
 
@@ -72,10 +71,11 @@ public class UserController {
 
     @GetMapping({"/", "/myProfile"})
     public String welcome(Model model) {
-    	model.addAttribute("activities", activityRepo.findAll());
+    	model.addAttribute("activityList", activityRepo.findAll());
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
-    	model.addAttribute("issues", issueRepo.findByUserId(loggedInUser));
+    	model.addAttribute("issueList", issueRepo.findByUser(loggedInUser));
+
         return "myProfile";
     }
 }
