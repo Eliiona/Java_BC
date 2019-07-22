@@ -45,3 +45,6 @@ INSERT INTO ISSUE_TABLE VALUES (1,  '15:30 09/10', 'Issue description ',  1, FAL
 
 INSERT INTO ISSUE_TABLE VALUES (2,  '15:30 09/10', 'Issue description ',  1, FALSE, 'Issue2', 1)
 
+
+
+https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example
