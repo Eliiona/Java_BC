@@ -106,18 +106,9 @@ form.login {
 	background-color: rgba(255, 255, 255, 0.76);
 	justify-content: center;
 	display: flex;
-<<<<<<< HEAD
-	width: 350px;
-	height: 420px;
-	border-radius: 10px;
-	padding: 20px;
-=======
 	width: 500px;
-	height: 530px;
+	height: 550px;
 	border-radius: 10px;
-	padding-left: 50px;
-	padding-right: 50px;
->>>>>>> master
 }
 
 .loginbtn {
@@ -151,7 +142,7 @@ hr {
 	border: 1px solid #f1f1f1;
 	margin-bottom: 25px;
   }
-input.form-control[type=text], input.form-control[type=password] {
+input.signup[type=text], input.signup[type=password] {
 	width: 100%;
 	padding: 15px;
 	margin: 5px 0 22px 0;

@@ -10,55 +10,35 @@
 	<div class="main_div">
 		<div class="static_header_bar">
 	        <div class="profile_logout_buttons">
-	        	<p><a href="">My profile</a></p>
-	        	<p><a href="">Log out</a></p>
+	        	<p><a href="myProfile.html">My profile</a></p>
+	        	<p onclick="document.forms['logoutForm'].submit()" ><a href="login.html">Log out</a></p>
 	        </div>
+
 
 	        <div class="title">
 	        	<h4>Code</h4>
 	        	<h4>Assist</h4>
 	    	</div>
 
+<<<<<<< HEAD
+	    	<div id="create_new_issue_btn" class="profile_logout_buttons">
+	    		<p><a href="new_issue.html">Open new issue</a></p>
+	    	</div>
+=======
 	    	<div class="creat_new_issue_button">
 	        	<p><a href="/newIssue">Create new issue</a></p>
 	        </div>
+>>>>>>> master
 		</div>
 
-		<div class="exercise_side_bar">
-			<button type="button" class="btn btn-light">Activity 01</button>
-			<button type="button" class="btn btn-light">Activity 02</button>
-			<button type="button" class="btn btn-light">Activity 04</button>
-			<button type="button" class="btn btn-light">Activity 04</button>
-			<button type="button" class="btn btn-light">Activity 05</button>
-			<button type="button" class="btn btn-light">Activity 06</button>
-			<button type="button" class="btn btn-light">Activity 07</button>
-			<button type="button" class="btn btn-light">Activity 08</button>
-			<button type="button" class="btn btn-light">Activity 09</button>
-			<button type="button" class="btn btn-light">Activity 10</button>
-			<button type="button" class="btn btn-light">Activity 11</button>
-			<button type="button" class="btn btn-light">Activity 12</button>
-			<button type="button" class="btn btn-light">Activity 13</button>
-			<button type="button" class="btn btn-light">Activity 14</button>
-			<button type="button" class="btn btn-light">Activity 15</button>
-			<button type="button" class="btn btn-light">Activity 16</button>
-			<button type="button" class="btn btn-light">Activity 17</button>
-			<button type="button" class="btn btn-light">Activity 18</button>
-			<button type="button" class="btn btn-light">Extra 01</button>
-			<button type="button" class="btn btn-light">Extra 02</button>
-			<button type="button" class="btn btn-light">Extra 03</button>
-			<button type="button" class="btn btn-light">Extra 04</button>
-			<button type="button" class="btn btn-light">Extra 05</button>
-			<button type="button" class="btn btn-light">Extra 06</button>
-			<button type="button" class="btn btn-light">Extra 07</button>
-			<button type="button" class="btn btn-light">Extra 08</button>
-			<button type="button" class="btn btn-light">Extra 09</button>
-			<button type="button" class="btn btn-light">Extra 10</button>
-			<button type="button" class="btn btn-light">Extra 11</button>
-			<button type="button" class="btn btn-light">Extra 12</button>
+		<div class="side_bar">
+			<div th:each="activity:${activityList}" >
+				<button onclick="pass(this)" class="activity" th:text="${activity.getName()}">No activities</button><br>
+			</div>
 		</div>
 
 		<div class="work_box">
-			<h2>My questions</h2>
+			<h2>My profile</h2>
 
 			<div th:each="issue:${issueList}">
 				<div class="myquestion_box">
@@ -81,5 +61,18 @@
 			
 		</div>
 	</div>
+	<script>
+		// Sends to activity page with paramater - name in button
+		function pass(button){
+			var value1=button.innerText;
+			var queryString = "?activity=" + value1;
+			window.location.href = "exercisePage" + queryString;
+		}
+		// Gets passed parameter and displays it on header
+		
+	
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

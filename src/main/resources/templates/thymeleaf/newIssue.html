@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
 	<title>New Issue</title>
-	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../../static/css/style.css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -26,7 +26,13 @@
 		</div>
 
 		<div class="side_bar">
+<<<<<<< HEAD:src/main/resources/templates/thymeleaf/newIssue.html
+			<div th:each="activity:${activityList}" >
+				<button onclick="pass(this)" class="activity" th:text="${activity.getName()}">No activities</button><br>
+			</div>
+=======
 			<div id="buttonList" ></div>
+>>>>>>> master:src/main/resources/templates/thymeleaf/newIssue.html
 		</div>
 
 		<div class="work_box">
