@@ -22,37 +22,10 @@
 	    	</div>
 		</div>
 
-		<div class="exercise_side_bar">
-			<button type="button" class="btn btn-light">Activity 01</button>
-			<button type="button" class="btn btn-light">Activity 02</button>
-			<button type="button" class="btn btn-light">Activity 04</button>
-			<button type="button" class="btn btn-light">Activity 04</button>
-			<button type="button" class="btn btn-light">Activity 05</button>
-			<button type="button" class="btn btn-light">Activity 06</button>
-			<button type="button" class="btn btn-light">Activity 07</button>
-			<button type="button" class="btn btn-light">Activity 08</button>
-			<button type="button" class="btn btn-light">Activity 09</button>
-			<button type="button" class="btn btn-light">Activity 10</button>
-			<button type="button" class="btn btn-light">Activity 11</button>
-			<button type="button" class="btn btn-light">Activity 12</button>
-			<button type="button" class="btn btn-light">Activity 13</button>
-			<button type="button" class="btn btn-light">Activity 14</button>
-			<button type="button" class="btn btn-light">Activity 15</button>
-			<button type="button" class="btn btn-light">Activity 16</button>
-			<button type="button" class="btn btn-light">Activity 17</button>
-			<button type="button" class="btn btn-light">Activity 18</button>
-			<button type="button" class="btn btn-light">Extra 01</button>
-			<button type="button" class="btn btn-light">Extra 02</button>
-			<button type="button" class="btn btn-light">Extra 03</button>
-			<button type="button" class="btn btn-light">Extra 04</button>
-			<button type="button" class="btn btn-light">Extra 05</button>
-			<button type="button" class="btn btn-light">Extra 06</button>
-			<button type="button" class="btn btn-light">Extra 07</button>
-			<button type="button" class="btn btn-light">Extra 08</button>
-			<button type="button" class="btn btn-light">Extra 09</button>
-			<button type="button" class="btn btn-light">Extra 10</button>
-			<button type="button" class="btn btn-light">Extra 11</button>
-			<button type="button" class="btn btn-light">Extra 12</button>
+		<div class="side_bar">
+			<div th:each="activity:${activityList}" >
+				<button onclick="pass(this)" class="activity" th:text="${activity.getName()}">No activities</button><br>
+			</div>
 		</div>
 
 		<div class="work_box">

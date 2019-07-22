@@ -212,13 +212,6 @@ input.signup[type=text], input.signup[type=password] {
 	position: absolute;
 }
 
-#avatar_image {
-	display: inline-block;
-	vertical-align: top;
-	float: left;
-	margin: 0;
-}
-
 .profile_logout_buttons {
 	font-size: 20px;
 	font-weight: bold;
@@ -243,11 +236,23 @@ input.signup[type=text], input.signup[type=password] {
 	text-decoration: none;
 }
 
+#create_new_issue_btn {
+	float: right;
+}
+
+#create_new_issue_btn p {
+	float: right;
+	margin: 0;
+	margin-top: 17px;
+	padding-right: 20px;
+}
+
 .title {
+	padding-left: 40%;
 	font-size: 30px;
 	color: white;
-	padding-left: 20px;
 	text-align: center;
+	display: inline-block;
 }
 
 .title h4:nth-child(1){
@@ -260,7 +265,7 @@ input.signup[type=text], input.signup[type=password] {
 	margin: 0;
 }
 
-.exercise_side_bar {
+.side_bar {
 	width: 150px;
 	height:calc(100% - 80px);
 	overflow: auto;
@@ -273,24 +278,24 @@ input.signup[type=text], input.signup[type=password] {
 	text-align: center;
 }
 
-.exercise_side_bar p {
+.side_bar p {
 	font-size: 20px;
 	color: grey;
 	margin: 0;
 	margin-top: 2px;
 }
 
-.exercise_side_bar p:nth-child(1) {
+.side_bar p:nth-child(1) {
 	margin-top: 15px;
 }
 
-.exercise_side_bar a {
-	color: white;
+.side_bar {
+	text-align: center;
 }
 
-.exercise_side_dar p:hover {
-	color: black;
-	background: white;
+.side_bar button {
+	margin-top: 10px;
+	width: 80%;
 }
 
 .work_box {
@@ -299,15 +304,6 @@ input.signup[type=text], input.signup[type=password] {
 	display: inline-block;
 	box-sizing: border-box;
 	background: rgba(62,70,80,1);
-}
-
-.exercise_side_bar {
-	text-align: center;
-}
-
-.exercise_side_bar button {
-	margin-top: 10px;
-	width: 80%;
 }
 
 /* WELCOME CSS page __________________________________________________________________________________________________________________________*/
@@ -322,7 +318,7 @@ input.signup[type=text], input.signup[type=password] {
 
 /* MYPROFILE CSS page __________________________________________________________________________________________________________________________*/
 
-.myprofile_side_bar {
+/*.myprofile_side_bar {
 	width: 150px;
 	height:calc(100% - 80px);
 	overflow: auto;
@@ -333,12 +329,11 @@ input.signup[type=text], input.signup[type=password] {
 	box-sizing: border-box;
 	background: rgba(62,70,80,1);
 	text-align: center;
-}
+}*/
 
 .activity{
 	width: 100%;
 	background-color: rgb(202, 211, 203);
-	border: none;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
@@ -350,7 +345,7 @@ input.signup[type=text], input.signup[type=password] {
 	background-color: #f1f3f3;
 }
 
-.myprofile_side_bar p {
+/*.myprofile_side_bar p {
 	font-size: 25px;
 	color: white;
 	margin: 0;
@@ -359,7 +354,7 @@ input.signup[type=text], input.signup[type=password] {
 
 .myprofile_side_bar p:nth-child(1) {
 	margin-top: 15px;
-}
+}*/
 
 .work_box {
 	width:calc(100% - 150px);
@@ -546,6 +541,11 @@ input.new_issue_in {
 	border: none;
 	background: #f1f1f1;
 }
+#options{
+	border:none;
+	height:30px;
+	font-size: 16px;
+}
 
 .new_issue_txt{
 	width: 100%;
@@ -553,6 +553,7 @@ input.new_issue_in {
 	margin: 5px 0 22px 0;
 	display: inline-block;
 	border: none;
+	font-size: 14px;
 	background: #f1f1f1;
 }
   

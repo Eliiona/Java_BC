@@ -1,6 +1,8 @@
 package com.codeassist.CodeAssist.Controllers;
 
-import java.util.Iterator;
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.codeassist.CodeAssist.Model.Activity;
 import com.codeassist.CodeAssist.Model.Issue;
 import com.codeassist.CodeAssist.Model.User;
 import com.codeassist.CodeAssist.Repo.ActivityRepo;
@@ -57,7 +60,7 @@ public class UserController {
 
         userService.save(userForm);
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-        return "thymeleaf/sample";
+        return "thymeleaf/myProfile";
     }
 
     @GetMapping("/login")
@@ -77,9 +80,30 @@ public class UserController {
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	model.addAttribute("issueList", issueRepo.findByUser(loggedInUser));
+    	model.addAttribute("title", "My Issues");
     	for (Issue i : issueRepo.findByUser(loggedInUser)) {
 			System.out.println(i.getTitle());
 		}
-        return "thymeleaf/sample";
+        return "thymeleaf/myProfile";
+    }
+    
+    @GetMapping("/exercisePage") //goes to webapp folder!!!
+    public String task(Model model, HttpServletRequest request) {
+    	model.addAttribute("activityList", activityRepo.findAll());
+    	String activityName = request.getParameter("activity");
+    	String title;
+    	if (activityName == null||activityName==""){
+    		title = "No activity selected";
+    	} else {
+    		Activity activity = activityRepo.findByName(activityName);
+    		if (activity == null){
+    			title = "No such activity";
+    		}else{
+    			title = activityName;
+    		}
+    	}
+    	
+    	model.addAttribute("title", title);
+    	return "thymeleaf/exercisePage";
     }
 }

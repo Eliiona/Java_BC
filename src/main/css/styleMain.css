@@ -106,10 +106,9 @@ form.login {
 	background-color: rgba(255, 255, 255, 0.76);
 	justify-content: center;
 	display: flex;
-	width: 350px;
-	height: 420px;
+	width: 500px;
+	height: 550px;
 	border-radius: 10px;
-	padding: 20px;
 }
 
 .loginbtn {
