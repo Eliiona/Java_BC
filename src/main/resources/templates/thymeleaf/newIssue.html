@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+	<title>New Issue</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div class="main_div">
+
+		<div class="static_header_bar">
+	        <div class="profile_logout_buttons">
+	        	<p><a href="myProfile.html">My profile</a></p>
+	        	<p><a href="login.html">Log out</a></p>
+	        </div>
+
+	        <div class="title">
+	        	<h4>Code</h4>
+	        	<h4>Assist</h4>
+	    	</div>
+
+	    	<div id="create_new_issue_btn" class="profile_logout_buttons">
+	    		<p><a href="new_issue.html">Open new issue</a></p>
+	    	</div>
+		</div>
+
+		<div class="side_bar">
+			<div id="buttonList" ></div>
+		</div>
+
+		<div class="work_box">
+			<h2>Open new issue</h2>
+
+			<form class="new_issue" name="form" method="POST" action="#" th:action="@{/newIssue}" th:object="${issue}">		
+				<p class="new_issue_lbl" style="display: block">Exercise:
+				<select name ="activity" id="options"></select></p>
+		
+				<div class="new_issue_lbl">
+					<p>Issue title:</p>
+					<input class= "new_issue_in" type="text" name="title" placeholder="Issue title" required>
+				</div>	
+
+				<div >
+					<p class="new_issue_lbl">Description:</p>
+					<textarea class= "new_issue_txt"rows="8" cols="100" form = "form" placeholder="Write the description of the issue.." 
+					required></textarea> 
+				</div>
+				<button type="submit" class="postbtn">Post issue</button>
+			</form>
+		</div>
+	</div>
+	<script>
+		var activities = [];
+		var html = '';
+		var act = '';
+		for (var i = 1; i<10;i++){
+			html +='<button onclick="pass(this)" class="activity">Activity 0'+i+'</button><br>';
+			activities.push('Activity 0'+i);
+		}
+		for (var i = 10; i<19;i++){
+			html +='<button onclick="pass(this)" class="activity">Activity '+i+'</button><br>';
+			activities.push('Activity '+i);
+		}
+		for (var i = 1; i<10;i++){
+			html +='<button onclick="pass(this)" class="activity">Extra 0'+i+'</button><br>';
+			activities.push('Extra 0'+i);
+		}
+		for (var i = 10; i<13;i++){
+			html +='<button onclick="pass(this)" class="activity">Extra '+i+'</button><br>';
+			activities.push('Extra '+i);
+		}
+		activities.forEach(function(activity){
+			act +='<option value="'+activity+'">'+activity+'</option>';
+		});
+		document.getElementById("options").innerHTML = act;
+		document.getElementById("buttonList").innerHTML = html;
+    function pass(button){
+        var value1=button.innerText;
+        var queryString = "?activity=" + value1;
+        window.location.href = "exercise_page.html" + queryString;
+    }
+
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+</body>
+</html>
