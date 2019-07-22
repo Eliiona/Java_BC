@@ -8,6 +8,8 @@ https://www.baeldung.com/spring-security-login-error-handling-localization
 http://www.springboottutorial.com/creating-web-application-with-spring-boot
 https://www.springboottutorial.com/spring-boot-and-h2-in-memory-database
 https://github.com/hellokoding/hellokoding-courses/tree/master/springboot-examples/springboot-registration-login/src/main
+https://www.oodlestechnologies.com/blogs/Use-Thymeleaf-And-JSP-Simultaneously-In-Spring-Boot-App/
+https://drive.google.com/file/d/1DpK2EiR3EIgBJl7BIEBvwshpWRx5L3wR/view?usp=sharing
 
 Instructions for git:
 1) Open console in directory where you're going to make the project
@@ -35,10 +37,11 @@ List of comands - https://gist.github.com/davfre/8313299
 
 uploaded from Elinas home laptop
 
-    <script>
-        var showtext = "[[${message}]]";
-        if (showtext != ""){
-            window.alert(showtext);
-        }
-        </script>
+INSERT INTO ROLE_TABLE VALUES ( 1, 'User')
+
+INSERT INTO USER_TABLE VALUES (1, 'name', '$2a$10$sbLRDIGdFCQ/.46x6v3UAudUJILlgyZfzfyKKNx6Q2dct9cagvAPu', 'surname', 'code', 1)
+
+INSERT INTO ISSUE_TABLE VALUES (1,  '15:30 09/10', 'Issue description ',  1, FALSE, 'Issue1', 1)
+
+INSERT INTO ISSUE_TABLE VALUES (2,  '15:30 09/10', 'Issue description ',  1, FALSE, 'Issue2', 1)
 

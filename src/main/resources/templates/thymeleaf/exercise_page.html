@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+	<title>Exercise page</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div class="main_div">
+		<div class="static_header_bar">
+		
+
+	        <div class="profile_logout_buttons">
+	        	<p><a href="">My profile</a></p>
+	        	<p><a href="">Log out</a></p>
+	        </div>
+
+	        <div class="title">
+	        	<h4>Code</h4>
+	        	<h4>Assist</h4>
+	    	</div>
+		</div>
+
+		<div class="exercise_side_bar">
+			<div id="buttonList"></div>
+		</div>
+
+		<div class="work_box">
+			<h2 id="activity-head"></h2>
+
+			<div class="open_new_issue_div">
+	        	<input class="open_new_issue_button" type="submit" name="commit" value="Open new question">
+	        </div>
+
+			<div class="question_box">
+				<div class="check_div">
+					
+				</div>
+
+				<div class="title_div">
+					<p><a href="">Issue title</a></p>
+				</div>
+
+				<div class="data_div">
+					<p>Posted by: abcd</p>
+					<p>Date: 16.07.2019</p>
+					<p>Replies: 14</p>
+				</div>	
+			</div>	
+
+			<div class="question_box">
+				<div class="check_div">
+					
+				</div>
+
+				<div class="title_div">
+					<p><a href="">Issue title</a></p>
+				</div>
+
+				<div class="data_div">
+					<p>Posted by: abcd</p>
+					<p>Date: 16.07.2019</p>
+					<p>Replies: 14</p>
+				</div>	
+			</div>	
+
+			<div class="question_box">
+				<div class="check_div">
+					
+				</div>
+
+				<div class="title_div">
+					<p><a href="">Issue title</a></p>
+				</div>
+
+				<div class="data_div">
+					<p>Posted by: abcd</p>
+					<p>Date: 16.07.2019</p>
+					<p>Replies: 14</p>
+				</div>	
+			</div>	
+
+			<div class="question_box">
+				<div class="check_div">
+					
+				</div>
+
+				<div class="title_div">
+					<p><a href="">Issue title</a></p>
+				</div>
+
+				<div class="data_div">
+					<p>Posted by: abcd</p>
+					<p>Date: 16.07.2019</p>
+					<p>Replies: 14</p>
+				</div>	
+			</div>	
+
+			<div class="question_box">
+				<div class="check_div">
+					
+				</div>
+
+				<div class="title_div">
+					<p><a href="">Issue title</a></p>
+				</div>
+
+				<div class="data_div">
+					<p>Posted by: abcd</p>
+					<p>Date: 16.07.2019</p>
+					<p>Replies: 14</p>
+				</div>	
+			</div>	
+
+			<div class="question_box">
+				<div class="check_div">
+					
+				</div>
+
+				<div class="title_div">
+					<p><a href="">Issue title</a></p>
+				</div>
+
+				<div class="data_div">
+					<p>Posted by: abcd</p>
+					<p>Date: 16.07.2019</p>
+					<p>Replies: 14</p>
+				</div>	
+			</div>	
+
+			<div class="question_box">
+				<div class="check_div">
+					
+				</div>
+
+				<div class="title_div">
+					<p><a href="">Issue title</a></p>
+				</div>
+
+				<div class="data_div">
+					<p>Posted by: abcd</p>
+					<p>Date: 16.07.2019</p>
+					<p>Replies: 14</p>
+				</div>	
+			</div>	
+
+			<div class="question_box">
+				<div class="check_div">
+					
+				</div>
+
+				<div class="title_div">
+					<p><a href="">Issue title</a></p>
+				</div>
+
+				<div class="data_div">
+					<p>Posted by: abcd</p>
+					<p>Date: 16.07.2019</p>
+					<p>Replies: 14</p>
+				</div>	
+			</div>	
+
+			<div class="question_box">
+				<div class="check_div">
+					
+				</div>
+
+				<div class="title_div">
+					<p><a href="">Issue title</a></p>
+				</div>
+
+				<div class="data_div">
+					<p>Posted by: abcd</p>
+					<p>Date: 16.07.2019</p>
+					<p>Replies: 14</p>
+				</div>	
+			</div>	
+
+		</div>
+	</div>
+	<script>
+		// draws buttons placeholder for list getting from DB
+			var html = '';
+			for (var i = 1; i<10;i++){
+				html +='<button onclick="pass(this)" class="activity">Activity 0'+i+'</button><br>';
+			}
+			for (var i = 10; i<19;i++){
+				html +='<button onclick="pass(this)" class="activity">Activity '+i+'</button><br>';
+			}
+			for (var i = 1; i<10;i++){
+				html +='<button onclick="pass(this)" class="activity">Extra 0'+i+'</button><br>';
+			}
+			for (var i = 10; i<13;i++){
+				html +='<button onclick="pass(this)" class="activity">Extra '+i+'</button><br>';
+			}
+			document.getElementById("buttonList").innerHTML = html;
+		// Sends to activity page with paramater - name in button
+		function pass(button){
+			var value1=button.innerText;
+			var queryString = "?activity=" + value1;
+			window.location.href = "exercise_page.html" + queryString;
+		}
+		// Gets passed parameter and displays it on header
+		var query = decodeURIComponent(window.location.search);
+		if (query == ''){
+			document.getElementById('activity-head').innerText = 'No Activity selected';
+		} else{
+			document.getElementById('activity-head').innerText = query.split("=")[1];
+		}
+		
+	
+		</script>
+</body>
+</html>
