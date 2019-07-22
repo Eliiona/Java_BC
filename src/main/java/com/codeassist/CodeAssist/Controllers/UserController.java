@@ -75,7 +75,7 @@ public class UserController {
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	model.addAttribute("issueList", issueRepo.findByUser(loggedInUser));
-
+    	System.out.println(issueRepo.findByUser(loggedInUser));
         return "myProfile";
     }
 }
