@@ -1,1 +1,16 @@
-Instructions for controller
+Instructions for backend functionality
+--- New Issue ---
+-> activityList for button generation
+-> activityList for option generation
+-> form for new issue: 
+ - take current user as the poster
+ - generate date string from now time on server
+ - After form submit redirect to comment page
+
+--- Comment ---
+-> activityList for button generation
+-> commentList for displaying all coments
+-> ability to take two inputs:
+ - Close Issue - can only be done by the owner if current user is owner button is visible Close/Open
+ - Post comment - form text field. Logged in user is added as the commenter, id and date generated, 
+   comment linked to the current issue
