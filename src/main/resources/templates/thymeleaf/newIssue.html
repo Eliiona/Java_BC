@@ -45,7 +45,11 @@
 
 			<form class="new_issue" name="form" method="POST" action="#" th:action="@{/newIssue}" th:object="${issue}">		
 				<p class="new_issue_lbl" style="display: block">Exercise:
-				<select name ="activity" id="options"></select></p>
+				<select name ="activity">
+					<option th:each="activity2:${activityList2}"
+					th:value="${activity2.getId()}"
+					th:text="${activity2.getName()}">--</option>
+				</select></p>
 		
 				<div class="new_issue_lbl">
 					<p>Issue title:</p>
