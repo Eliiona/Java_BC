@@ -26,15 +26,19 @@
 		</div>
 
 		<div class="side_bar">
+<<<<<<< HEAD:src/main/resources/templates/thymeleaf/newIssue.html
 			<div th:each="activity:${activityList}" >
 				<button onclick="pass(this)" class="activity" th:text="${activity.getName()}">No activities</button><br>
 			</div>
+=======
+			<div id="buttonList" ></div>
+>>>>>>> master:src/main/resources/templates/thymeleaf/newIssue.html
 		</div>
 
 		<div class="work_box">
 			<h2>Open new issue</h2>
 
-			<form class="new_issue" name="form" method="POST" action="#" th:action="@{/newissue}" th:object="${issue}">		
+			<form class="new_issue" name="form" method="POST" action="#" th:action="@{/newIssue}" th:object="${issue}">		
 				<p class="new_issue_lbl" style="display: block">Exercise:
 				<select name ="activity" id="options"></select></p>
 		

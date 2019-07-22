@@ -9,7 +9,11 @@
   <head>
       <meta charset="utf-8">
       <title>Log in with your account</title>
+<<<<<<< HEAD
       <link rel="stylesheet" href="../resources/css/style.css">
+=======
+      <link rel="stylesheet" href="/resources/css/style.css">
+>>>>>>> master
 
       <!-- <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
       <link href="${contextPath}/resources/css/common.css" rel="stylesheet"> -->
@@ -34,11 +38,19 @@
 
         <div class="form-group ${error != null ? 'has-error' : ''}">
             <span>${message}</span>
+<<<<<<< HEAD
             
             <input name="username" type="text" class="form-control" placeholder="Bootcamp ID"
                    autofocus="true"/><br>
                    
             <input name="password" type="password" class="form-control" placeholder="Password"/><br>
+=======
+            <label for="user"><b>Bootcamp ID</b></label><br>
+            <input name="username" type="text" class="form-control" placeholder="Bootcamp ID"
+                   autofocus="true"/>
+                   <label for="psw"><b>Password</b></label><br>
+            <input name="password" type="password" class="form-control" placeholder="Password"/>
+>>>>>>> master
             <span>${error}</span>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
