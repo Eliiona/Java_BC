@@ -1,5 +1,7 @@
 package com.codeassist.CodeAssist.Controllers;
 
+import java.util.Iterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +44,7 @@ public class UserController {
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
 
-        return "registration";
+        return "jsp/registration";
     }
 
     @PostMapping("/registration")
@@ -50,12 +52,12 @@ public class UserController {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "jsp/registration";
         }
 
         userService.save(userForm);
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-        return "redirect:/myProfile";
+        return "thymeleaf/sample";
     }
 
     @GetMapping("/login")
@@ -66,7 +68,7 @@ public class UserController {
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
 
-        return "login";
+        return "jsp/login";
     }
 
     @GetMapping({"/", "/myProfile"})
@@ -75,7 +77,9 @@ public class UserController {
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	model.addAttribute("issueList", issueRepo.findByUser(loggedInUser));
-
-        return "myProfile";
+    	for (Issue i : issueRepo.findByUser(loggedInUser)) {
+			System.out.println(i.getTitle());
+		}
+        return "thymeleaf/sample";
     }
 }
