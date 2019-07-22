@@ -117,18 +117,13 @@ public class UserController {
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	issue.setUser(loggedInUser);
-    	int activityId = issue.getActivity().getId();
     	int issueId = issue.getId_issue();
     	issueRepo.save(issue);
-    	return "thymeleaf/activity/" + activityId + "/issue/" + issueId;
+    	return "redirect:/issue/" + issueId;
     }
     
     
-    //
-    
-    
-    
-    
+    //Activity Controller-----------------------------------------------------------------------------------------
     
     
 }
