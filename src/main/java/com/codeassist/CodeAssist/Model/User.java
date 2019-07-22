@@ -1,12 +1,10 @@
 package com.codeassist.CodeAssist.Model;
 import java.util.Collection;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -108,6 +106,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+    
+    public String getNameAndSurname() {
+    	String nameToReturn = name.substring(0,1).toUpperCase() + name.substring(1);
+    	String surnameToReturnString = surname.substring(0,1).toUpperCase() + surname.substring(1);
+    	String result = nameToReturn + " " + surnameToReturnString;
+    	return result;
     }
 
 }

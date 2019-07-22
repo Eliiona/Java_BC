@@ -31,7 +31,7 @@ public class Issue {
 	
 	@NotNull
 	@Column(name = "Solved")
-	private boolean isSolved;
+	private boolean isSolved = false;
 	
 	@NotNull
 	@Column(name = "Description")
@@ -114,7 +114,16 @@ public class Issue {
 
 	public Activity getActivity() {
 		return activity;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}	
+	
 	
 	
 }
