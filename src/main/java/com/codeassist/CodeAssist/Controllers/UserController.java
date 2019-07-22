@@ -146,15 +146,11 @@ public class UserController {
     	issue.setUser(loggedInUser);
     	int issueId = issue.getId_issue();
     	issueRepo.save(issue);
-    	return "thymeleaf/issue/" + issueId;
+    	return "redirect:/issue/" + issueId;
     }
     
     
-    //
-    
-    
-    
-    
+    //Activity Controller-----------------------------------------------------------------------------------------
     
     
 }
