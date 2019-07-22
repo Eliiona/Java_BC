@@ -1,5 +1,9 @@
 package com.codeassist.CodeAssist.Controllers;
 
+
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -99,9 +103,32 @@ public class UserController {
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	model.addAttribute("issueList", issueRepo.findByUser(loggedInUser));
+    	model.addAttribute("title", "My Issues");
+    	for (Issue i : issueRepo.findByUser(loggedInUser)) {
+			System.out.println(i.getTitle());
+		}
         return "thymeleaf/myProfile";
     }
     
+    @GetMapping("/exercisePage") //goes to webapp folder!!!
+    public String task(Model model, HttpServletRequest request) {
+    	model.addAttribute("activityList", activityRepo.findAll());
+    	String activityName = request.getParameter("activity");
+    	String title;
+    	if (activityName == null||activityName==""){
+    		title = "No activity selected";
+    	} else {
+    		Activity activity = activityRepo.findByName(activityName);
+    		if (activity == null){
+    			title = "No such activity";
+    		}else{
+    			title = activityName;
+    		}
+    	}
+    	
+    	model.addAttribute("title", title);
+    	return "thymeleaf/exercisePage";
+    }
     //New Issue Controller----------------------------------------------------------------------------------------
     
     @GetMapping("/newIssue")
