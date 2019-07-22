@@ -42,6 +42,7 @@ public class Issue {
 	private String date;
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name = "Id_Activity")
 	private Activity activity;
@@ -50,6 +51,11 @@ public class Issue {
 	@Column(name = "Exercise")
 	public int exercise;
 >>>>>>> master
+=======
+	@ManyToOne
+	@JoinColumn(name = "Id_Activity")
+	private Activity activity;
+>>>>>>> cca07a88eb1455c58405ff23689d3457cbb00256
 	
 	@ManyToOne
 	@JoinColumn(name = "Id_user")

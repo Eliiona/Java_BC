@@ -44,7 +44,8 @@
 
             <button class="loginbtn" type="submit">Login</button>
             <hr style="margin-top: 30px;">
-            <h4 style="text-align: center" class="submit"><a href="${contextPath}/registration">Create an account</a></h4>  
+	          <p>Register new account.</p>
+            <button type="submit" class="loginbtn" href="${contextPath}/registration">Create an account</button>
         </div>
       </div>
       </form>

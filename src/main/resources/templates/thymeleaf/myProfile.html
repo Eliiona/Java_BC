@@ -59,10 +59,10 @@
 
 		<div class="work_box">
 			<h2>My questions</h2>
-			
 
-				<div class="myquestion_box" th:each="issue:${issueList}">
-					<p th:text="${issue.exercise}"></p>
+			<div th:each="issue:${issueList}">
+				<div class="myquestion_box">
+					<p th:text="${issue.getExercise()}">Activity 01</p>
 					<p th:text="${issue.getTitle()}"><a href="/">Issue title</a></p>
 					<p style="display: inline-block;" >Posted by:</p>	
 					<p style="display: inline-block;" th:text="${issue.getUser().getUsername()}">abcd</p>
@@ -76,13 +76,10 @@
 					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>			
 				</div>	
+			</div>
 
 			
 		</div>
 	</div>
-	<script type="text/javascript" th:inline="javascript">
-			var list = '${issueList}';
-		console.log(list);
-	</script>
 </body>
 </html>
