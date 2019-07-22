@@ -48,19 +48,19 @@
 		var html = '';
 		var act = '';
 		for (var i = 1; i<10;i++){
-			html +='<a href="Activity0'+i+'"><button class="activity">Activity 0'+i+'</button></a><br>';
+			html +='<button onclick="pass(this)" class="activity">Activity 0'+i+'</button><br>';
 			activities.push('Activity 0'+i);
 		}
 		for (var i = 10; i<19;i++){
-			html +='<a href="Activity'+i+'"><button class="activity">Activity '+i+'</button></a><br>';
+			html +='<button onclick="pass(this)" class="activity">Activity '+i+'</button><br>';
 			activities.push('Activity '+i);
 		}
 		for (var i = 1; i<10;i++){
-			html +='<a href="Extra0'+i+'"><button class="activity">Extra 0'+i+'</button></a><br>';
+			html +='<button onclick="pass(this)" class="activity">Extra 0'+i+'</button><br>';
 			activities.push('Extra 0'+i);
 		}
 		for (var i = 10; i<13;i++){
-			html +='<a href="Extra'+i+'"><button class="activity">Extra '+i+'</button></a><br>';
+			html +='<button onclick="pass(this)" class="activity">Extra '+i+'</button><br>';
 			activities.push('Extra '+i);
 		}
 		activities.forEach(function(activity){
@@ -68,6 +68,12 @@
 		});
 		document.getElementById("options").innerHTML = act;
 		document.getElementById("buttonList").innerHTML = html;
+    function pass(button){
+        var value1=button.innerText;
+        var queryString = "?activity=" + value1;
+        window.location.href = "exercise_page.html" + queryString;
+    }
+
 	</script>
 </body>
 </html>

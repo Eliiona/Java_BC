@@ -23,40 +23,11 @@
 		</div>
 
 		<div class="exercise_side_bar">
-			<button type="button" class="btn btn-light">Activity 01</button>
-			<button type="button" class="btn btn-light">Activity 02</button>
-			<button type="button" class="btn btn-light">Activity 04</button>
-			<button type="button" class="btn btn-light">Activity 04</button>
-			<button type="button" class="btn btn-light">Activity 05</button>
-			<button type="button" class="btn btn-light">Activity 06</button>
-			<button type="button" class="btn btn-light">Activity 07</button>
-			<button type="button" class="btn btn-light">Activity 08</button>
-			<button type="button" class="btn btn-light">Activity 09</button>
-			<button type="button" class="btn btn-light">Activity 10</button>
-			<button type="button" class="btn btn-light">Activity 11</button>
-			<button type="button" class="btn btn-light">Activity 12</button>
-			<button type="button" class="btn btn-light">Activity 13</button>
-			<button type="button" class="btn btn-light">Activity 14</button>
-			<button type="button" class="btn btn-light">Activity 15</button>
-			<button type="button" class="btn btn-light">Activity 16</button>
-			<button type="button" class="btn btn-light">Activity 17</button>
-			<button type="button" class="btn btn-light">Activity 18</button>
-			<button type="button" class="btn btn-light">Extra 01</button>
-			<button type="button" class="btn btn-light">Extra 02</button>
-			<button type="button" class="btn btn-light">Extra 03</button>
-			<button type="button" class="btn btn-light">Extra 04</button>
-			<button type="button" class="btn btn-light">Extra 05</button>
-			<button type="button" class="btn btn-light">Extra 06</button>
-			<button type="button" class="btn btn-light">Extra 07</button>
-			<button type="button" class="btn btn-light">Extra 08</button>
-			<button type="button" class="btn btn-light">Extra 09</button>
-			<button type="button" class="btn btn-light">Extra 10</button>
-			<button type="button" class="btn btn-light">Extra 11</button>
-			<button type="button" class="btn btn-light">Extra 12</button>
+			<div id="buttonList"></div>
 		</div>
 
 		<div class="work_box">
-			<h2>Activity 07</h2>
+			<h2 id="activity-head"></h2>
 
 			<div class="open_new_issue_div">
 	        	<input class="open_new_issue_button" type="submit" name="commit" value="Open new question">
@@ -208,5 +179,37 @@
 
 		</div>
 	</div>
+	<script>
+		// draws buttons placeholder for list getting from DB
+			var html = '';
+			for (var i = 1; i<10;i++){
+				html +='<button onclick="pass(this)" class="activity">Activity 0'+i+'</button><br>';
+			}
+			for (var i = 10; i<19;i++){
+				html +='<button onclick="pass(this)" class="activity">Activity '+i+'</button><br>';
+			}
+			for (var i = 1; i<10;i++){
+				html +='<button onclick="pass(this)" class="activity">Extra 0'+i+'</button><br>';
+			}
+			for (var i = 10; i<13;i++){
+				html +='<button onclick="pass(this)" class="activity">Extra '+i+'</button><br>';
+			}
+			document.getElementById("buttonList").innerHTML = html;
+		// Sends to activity page with paramater - name in button
+		function pass(button){
+			var value1=button.innerText;
+			var queryString = "?activity=" + value1;
+			window.location.href = "exercise_page.html" + queryString;
+		}
+		// Gets passed parameter and displays it on header
+		var query = decodeURIComponent(window.location.search);
+		if (query == ''){
+			document.getElementById('activity-head').innerText = 'No Activity selected';
+		} else{
+			document.getElementById('activity-head').innerText = query.split("=")[1];
+		}
+		
+	
+		</script>
 </body>
 </html>

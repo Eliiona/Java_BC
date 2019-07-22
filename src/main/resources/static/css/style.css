@@ -338,7 +338,6 @@ input.signup[type=text], input.signup[type=password] {
 .activity{
 	width: 100%;
 	background-color: rgb(202, 211, 203);
-	border: none;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
@@ -546,6 +545,11 @@ input.new_issue_in {
 	border: none;
 	background: #f1f1f1;
 }
+#options{
+	border:none;
+	height:30px;
+	font-size: 16px;
+}
 
 .new_issue_txt{
 	width: 100%;
@@ -553,6 +557,7 @@ input.new_issue_in {
 	margin: 5px 0 22px 0;
 	display: inline-block;
 	border: none;
+	font-size: 14px;
 	background: #f1f1f1;
 }
   

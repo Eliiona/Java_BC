@@ -41,9 +41,15 @@ public class Issue {
 	@Column(name = "Date")
 	private String date;
 	
+<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name = "Id_Activity")
 	private Activity activity;
+=======
+	@NotNull
+	@Column(name = "Exercise")
+	public int exercise;
+>>>>>>> master
 	
 	@ManyToOne
 	@JoinColumn(name = "Id_user")

@@ -107,8 +107,10 @@ form.login {
 	justify-content: center;
 	display: flex;
 	width: 500px;
-	height: 550px;
+	height: 480px;
 	border-radius: 10px;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 .loginbtn {
@@ -133,7 +135,7 @@ form.signup {
 	justify-content: center;
 	display: flex;
 	width: 500px;
-	height: 710px;
+	height: 650px;
 	border-radius: 10px;
 }
 
@@ -142,7 +144,7 @@ hr {
 	border: 1px solid #f1f1f1;
 	margin-bottom: 25px;
   }
-input.signup[type=text], input.signup[type=password] {
+input.form-control[type=text], input.form-control[type=password] {
 	width: 100%;
 	padding: 15px;
 	margin: 5px 0 22px 0;
