@@ -107,7 +107,7 @@ form.login {
 	justify-content: center;
 	display: flex;
 	width: 500px;
-	height: 530px;
+	height: 480px;
 	border-radius: 10px;
 	padding-left: 50px;
 	padding-right: 50px;
@@ -135,7 +135,7 @@ form.signup {
 	justify-content: center;
 	display: flex;
 	width: 500px;
-	height: 710px;
+	height: 650px;
 	border-radius: 10px;
 }
 
