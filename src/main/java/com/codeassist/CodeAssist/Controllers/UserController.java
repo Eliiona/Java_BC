@@ -44,7 +44,7 @@ public class UserController {
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
 
-        return "registration";
+        return "jsp/registration";
     }
 
     @PostMapping("/registration")
@@ -52,12 +52,12 @@ public class UserController {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "jsp/registration";
         }
 
         userService.save(userForm);
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-        return "redirect:/myProfile";
+        return "thymeleaf/sample";
     }
 
     @GetMapping("/login")
@@ -68,7 +68,7 @@ public class UserController {
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
 
-        return "login";
+        return "jsp/login";
     }
 
     @GetMapping({"/", "/myProfile"})
@@ -80,6 +80,6 @@ public class UserController {
     	for (Issue i : issueRepo.findByUser(loggedInUser)) {
 			System.out.println(i.getTitle());
 		}
-        return "myProfile";
+        return "thymeleaf/sample";
     }
 }
