@@ -129,7 +129,7 @@ public class UserController {
     		if (activity == null){
     			title = "No such activity";
     		}else{
-		model.addAttribute("issueList", issueRepo.findByActivity(activity));
+    			model.addAttribute("issueList", issueRepo.findByActivity(activity));
     			title = activityName;
     			model.addAttribute("issueList", issueRepo.findByActivity(activity));
     		}
