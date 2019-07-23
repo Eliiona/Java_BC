@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.codeassist.CodeAssist.Model.Activity;
+import com.codeassist.CodeAssist.Model.Helper;
 import com.codeassist.CodeAssist.Model.Issue;
 import com.codeassist.CodeAssist.Model.Reply;
 import com.codeassist.CodeAssist.Model.User;
@@ -70,7 +71,7 @@ public class UserController {
 
         userService.save(userForm);
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-        return "thymeleaf/myProfile";
+        return "redirect:/myProfile";
     }
     
     
@@ -181,13 +182,18 @@ public class UserController {
     
     //Admin controller----------------------------------------------------------------------------------------------------
     @GetMapping("/admin")
-    public String adminGet() {
+    public String adminGet(Helper helper) {
     	return"thymeleaf/admin";
     }
     
     @PostMapping("/admin")
-    public String adminPost() {
-    	return"";
+    public String adminPost(Helper helper) {
+    	for(int i = 0; i < helper.getActivityCount(); i++) {
+    		Activity activity = new Activity();
+    		activity.setName(helper.getActivityName() + i);
+    		activityRepo.save(activity);
+    	}
+    	return"redirect:/admin";
     }
     
     
