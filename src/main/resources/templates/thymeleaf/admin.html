@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+
+<head>
+	<title>Admin page</title>
+	<link rel="stylesheet" href="../../static/css/style.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="admin_background">
+
+		<h2 style="margin-top: 30px; margin-bottom: 30px; text-align: center; font-size: 40px;">CodeAssist admin page</h2>
+			
+		<!-- <div class="admin_div" style="height: 300px; width: 300px; background: rgba(241,243,243,0.95); width: 50%; margin: auto;">
+			<p>qwerty</p>
+		</div> -->
+
+		<form class="login" method="POST" action="#" th:action="@{/}" th:object="${user}" style="border:1px solid #ccc; margin: auto; height: 500px;">
+	        <div class="container" style="width: 80%">
+	          <h1 style="font-size: 30px";>Activity name generator</h1>
+	          
+	          <hr>
+		      <span>
+		          <label for="user"><b>Activity type:</b></label><br>
+		          <input class = "signup" type="text" placeholder="Enter type of activity to generate" th:field="*{bcCode}" name="user" required><br>
+		      </span>      
+	          <div>
+	              <label for="psw"><b>Number of activities:</b></label><br>
+	              <input class = "signup" type="password" placeholder="Enter number of activities to generata" th:field="*{password}" name="psw" required>
+	          </div> 
+	          <div>      
+	            <button type="submit" class="loginbtn">Generate</button>
+	          </div>
+	          <hr style="margin-top: 30px;">
+	          <p>Delete all database</p>
+	          <div>      
+	            <a href="/signup"><button style="ma" type="submit" class="loginbtn">Delete</button></a>
+	          </div>
+
+	        </div>
+      	</form> 
+	
+</body>
+</html>
