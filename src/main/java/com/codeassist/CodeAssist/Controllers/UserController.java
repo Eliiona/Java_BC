@@ -197,12 +197,17 @@ public class UserController {
 	    	reply.setIssue(issue);
 	    	replyRepo.save(reply);
 	    	}
-    	/*
-    	if (update.equals("update")){
-    		issue.update();
-    	}*/
     	return "redirect:/issue?id=" + issueId;
-}
+    }
+    
+    @PostMapping("/updateIssue")
+    public String updateIssueStatus(HttpServletRequest request) {
+    	int issueId = Integer.parseInt(request.getParameter("id"));
+    	Issue issue = issueRepo.findById(issueId).get();
+    	issue.update();
+    	issueRepo.save(issue);
+    	return "redirect:/issue?id=" + issueId;
+    }
 
     
     //Admin controller----------------------------------------------------------------------------------------------------
