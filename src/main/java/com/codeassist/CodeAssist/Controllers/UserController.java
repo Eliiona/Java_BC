@@ -169,15 +169,21 @@ public class UserController {
     	int issueId = Integer.parseInt(request.getParameter("id"));
     	Issue issue = issueRepo.findById(issueId).get();
     	if(issue != null) { 
-    	model.addAttribute("activityList", activityRepo.findAll());
-    	model.addAttribute("issue", issue);
-    	model.addAttribute("replyList", replyRepo.findByIssue(issue));
+    	  model.addAttribute("activityList", activityRepo.findAll());
+    	  model.addAttribute("issue", issue);
+    	  model.addAttribute("replyList", replyRepo.findByIssue(issue));
     	}
     	else {
     		String title = "No issue selected";
     		model.addAttribute("activityList", activityRepo.findAll());
     		model.addAttribute("title", title);
     	}
+      boolean isOwner = false;
+    	String loggedInUsername = securityService.findLoggedInUsername();
+    	if (issue.getUser().getUsername().equals(loggedInUsername)){
+    		isOwner=true;
+    	}
+    	model.addAttribute("isOwner", isOwner);
     	return "thymeleaf/comments";
     }
     
