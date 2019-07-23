@@ -168,9 +168,16 @@ public class UserController {
     public String currentIssueGet(Model model, HttpServletRequest request, Reply reply) {
     	int issueId = Integer.parseInt(request.getParameter("id"));
     	Issue issue = issueRepo.findById(issueId).get();
+    	if(issue != null) { 
     	model.addAttribute("activityList", activityRepo.findAll());
     	model.addAttribute("issue", issue);
     	model.addAttribute("replyList", replyRepo.findByIssue(issue));
+    	}
+    	else {
+    		String title = "No issue selected";
+    		model.addAttribute("activityList", activityRepo.findAll());
+    		model.addAttribute("title", title);
+    	}
     	return "thymeleaf/comments";
     }
     
