@@ -40,18 +40,26 @@
 		</div>
 
 		<div class="work_box">
-			<h2>My profileeeeeeeeeee</h2>
+			<h2>My profile</h2>
 
 			<div th:each="issue:${issueList}">
-				<div class="myquestion_box">
-					<p th:text="${issue.getExercise().getName()}">Activity 01</p>
-					<a th:href= "@{/issue(id=${issue.getId_issue()})}"><h2 th:text="${issue.getTitle()}">Issue title</h2></a>
-					<p style="display: inline-block;" >Posted by:</p>	
-					<p style="display: inline-block;" th:text="${issue.getUser().getNameAndSurname()}">abcd</p>
-					<p style="display: inline-block;" >Date: </p>
-					<p style="display: inline-block;" th:text="${issue.getDate()}">16.07.2019</p>
+				<div class="question_box">
+					<div style="display: inline-block; float: left;">
+						<p style="text-align: left; font-weight: bold; padding-left: 20px;" th:text="${issue.getExercise().getName()}">Activity 01</p>
+					</div>
+					
+					<div class="data_div">
+						<p>Posted by: <span th:text="${issue.getUser().getNameAndSurname()}"></span></p>	
+						<p>Date: <span th:text="${issue.getDate()}"></span></p>
+						<p>Replies: <span th:text="${issue.getReplysForIssue()}"></span></p>
+					</div>
+
+					<div class="title_div">
+						<a th:href= "@{/issue(id=${issue.getId_issue()})}"><p th:text="${issue.getTitle()}">Issue title</p></a>
+					</div>
+					
 					<p style="text-align: left; font-weight: bold; padding-left: 20px;">Description:</p>
-					<p style="text-align:left; padding-left: 20px;"th:text="${issue.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					<p style="text-align:left; padding-left: 20px; max-height: 50px; overflow: hidden; text-overflow: ellipsis;"th:text="${issue.getDescription()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse

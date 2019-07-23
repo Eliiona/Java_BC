@@ -122,7 +122,13 @@ public class Issue {
 
 	public void setUser(User user) {
 		this.user = user;
-	}	
+	}
+
+	public int getReplysForIssue() {
+		return replysForIssue.size();
+	}
+
+	
 	
 	
 	

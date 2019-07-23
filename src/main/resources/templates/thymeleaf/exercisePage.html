@@ -48,7 +48,7 @@
 				</div>
 
 				<div class="title_div">
-					<p><a href="">Issue title</a></p>
+					<a th:href= "@{/issue(id=${issue.getId_issue()})}"><p th:text="${issue.getTitle()}">Issue title</p></a>
 				</div>
 
 				<div class="data_div">
