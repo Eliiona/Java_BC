@@ -167,23 +167,23 @@ public class UserController {
     @GetMapping("/issue")
     public String currentIssueGet(Model model, HttpServletRequest request, Reply reply) {
     	int issueId = Integer.parseInt(request.getParameter("id"));
-    	Issue issue = issueRepo.findById(issueId).get();
-    	if(issue != null) { 
-    	  model.addAttribute("activityList", activityRepo.findAll());
-    	  model.addAttribute("issue", issue);
-    	  model.addAttribute("replyList", replyRepo.findByIssue(issue));
+    	Issue issue = null;
+    	if(!issueRepo.findById(issueId).isPresent()) { 
+    		return"redirect:/myProfile";    		
     	}
     	else {
-    		String title = "No issue selected";
+    		issue = issueRepo.findById(issueId).get();
     		model.addAttribute("activityList", activityRepo.findAll());
-    		model.addAttribute("title", title);
+    		model.addAttribute("issue", issue);
+    		model.addAttribute("replyList", replyRepo.findByIssue(issue));
+    		boolean isOwner = false;
+        	String loggedInUsername = securityService.findLoggedInUsername();
+        	if (issue.getUser().getUsername().equals(loggedInUsername)){
+        		isOwner=true;
+        	}
+        	model.addAttribute("isOwner", isOwner);
     	}
-      boolean isOwner = false;
-    	String loggedInUsername = securityService.findLoggedInUsername();
-    	if (issue.getUser().getUsername().equals(loggedInUsername)){
-    		isOwner=true;
-    	}
-    	model.addAttribute("isOwner", isOwner);
+    	
     	return "thymeleaf/comments";
     }
     
