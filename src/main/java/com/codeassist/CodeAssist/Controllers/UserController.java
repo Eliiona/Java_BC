@@ -110,9 +110,6 @@ public class UserController {
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	model.addAttribute("issueList", issueRepo.findByUser(loggedInUser));
     	model.addAttribute("title", "My Issues");
-    	for (Issue i : issueRepo.findByUser(loggedInUser)) {
-			System.out.println(i.getTitle());
-		}
         return "thymeleaf/myProfile";
     }
     
