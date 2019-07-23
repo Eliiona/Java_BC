@@ -171,6 +171,12 @@ public class UserController {
     	model.addAttribute("activityList", activityRepo.findAll());
     	model.addAttribute("issue", issue);
     	model.addAttribute("replyList", replyRepo.findByIssue(issue));
+    	boolean isOwner = false;
+    	String loggedInUsername = securityService.findLoggedInUsername();
+    	if (issue.getUser().getUsername().equals(loggedInUsername)){
+    		isOwner=true;
+    	}
+    	model.addAttribute("isOwner", isOwner);
     	return "thymeleaf/comments";
     }
     

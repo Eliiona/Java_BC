@@ -129,7 +129,9 @@ public class Issue {
 	}
 
 	
-	
+	public void update(){
+		this.isSolved = !this.isSolved;
+	}
 	
 	
 }
