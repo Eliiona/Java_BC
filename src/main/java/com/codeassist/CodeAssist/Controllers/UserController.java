@@ -152,6 +152,9 @@ public class UserController {
     @PostMapping("/newIssue")
     public String newIssuePost(Issue issue) {
     	issue.setDate();
+    	Activity activity = activityRepo.findById(issue.getActivity().getId()).get();
+    	System.out.println("test test test");
+    	issue.setActivity(activity);
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	issue.setUser(loggedInUser);
