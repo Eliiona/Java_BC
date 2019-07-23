@@ -134,6 +134,7 @@ public class UserController {
     @GetMapping("/newIssue")
     public String newIssueGet(Issue issue, Model model) {
     	model.addAttribute("activityList", activityRepo.findAll());
+    	model.addAttribute("activityList2", activityRepo.findAll());
     	return "thymeleaf/newIssue";
     }
     

@@ -26,7 +26,7 @@ Instructions for git:
 --> git checkout -b [new branch name with issue number] --- create new branch for your assigned issue
 --> git add -A / git add filename.filetype --- add every change or specific file
 --> git commit -m "Closed No" --- keep comments useful for teammates
---> git puch origin -u [new branch name with issue number] --- push to create new branch ir repository
+--> git push origin -u [new branch name with issue number] --- push to create new branch ir repository
 --> git push --- commit changes after successfully commited to the right branch
 
 --> git branch -d branch_name --- delete branch when done working on it - push and merge complete
