@@ -158,9 +158,8 @@ public class UserController {
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	issue.setUser(loggedInUser);
-    	int issueId = issue.getId_issue();
     	issueRepo.save(issue);
-    	return "redirect:/issue/" + issueId;
+    	return "redirect:/myProfile";
     }
     
     
