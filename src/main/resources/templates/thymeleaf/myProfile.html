@@ -52,6 +52,7 @@
 						<p>Posted by: <span th:text="${issue.getUser().getNameAndSurname()}"></span></p>	
 						<p>Date: <span th:text="${issue.getDate()}"></span></p>
 						<p>Replies: <span th:text="${issue.getReplysForIssue()}"></span></p>
+						<p>Is solved: <span th:text="${issue.isSolved()}"></span></p>
 					</div>
 
 					<div class="title_div">

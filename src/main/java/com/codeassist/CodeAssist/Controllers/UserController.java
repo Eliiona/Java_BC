@@ -1,6 +1,8 @@
 package com.codeassist.CodeAssist.Controllers;
 
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -128,11 +130,13 @@ public class UserController {
     		if (activity == null){
     			title = "No such activity";
     		}else{
+		model.addAttribute("issueList", issueRepo.findByActivity(activity));
     			title = activityName;
     		}
     	}
     	
     	model.addAttribute("title", title);
+	
     	return "thymeleaf/exercisePage";
     }
     //New Issue Controller----------------------------------------------------------------------------------------
@@ -158,26 +162,24 @@ public class UserController {
     
     
     //Current Issue controller-----------------------------------------------------------------------------------------
-    @GetMapping("/issue")
-    public String currentIssueGet(Model model, HttpServletRequest request, Reply reply) {
-    	int issueId = Integer.parseInt(request.getParameter("id"));
-    	Issue issue = issueRepo.findById(issueId).get();
+    @GetMapping("/issue/{id}")
+    public String currentIssueGet(Model model, @PathVariable(name = "id") int id, Reply reply) {
+    	Issue issue = issueRepo.findById(id).get();
     	model.addAttribute("activityList", activityRepo.findAll());
     	model.addAttribute("issue", issue);
     	model.addAttribute("replyList", replyRepo.findByIssue(issue));
     	return "thymeleaf/comments";
     }
     
-    @PostMapping("/issue")
-    public String currentIssuePost(HttpServletRequest request, Reply reply) {
-    	int issueId = Integer.parseInt(request.getParameter("id"));
+    @PostMapping("/issue/{id}")
+    public String currentIssuePost(@PathVariable(name = "id") int id, Reply reply) {
     	reply.setDate();
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	reply.setUser(loggedInUser);
-    	reply.setIssue(issueRepo.findById(issueId).get());
+    	reply.setIssue(issueRepo.findById(id).get());
     	replyRepo.save(reply);
-    	return "redirect:/issue?id=" + issueId;
+    	return "redirect:/issue/" + id;
     }
     
     //Admin controller----------------------------------------------------------------------------------------------------
@@ -195,6 +197,7 @@ public class UserController {
     	}
     	return"redirect:/admin";
     }
+
     
     
     

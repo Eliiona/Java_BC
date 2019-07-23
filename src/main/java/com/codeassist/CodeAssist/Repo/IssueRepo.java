@@ -6,7 +6,9 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.codeassist.CodeAssist.Model.Issue;
 import com.codeassist.CodeAssist.Model.User;
+import com.codeassist.CodeAssist.Model.Activity;
 
 public interface IssueRepo extends CrudRepository<Issue, Integer>{
 	ArrayList<Issue> findByUser(User user);
+	ArrayList<Issue> findByActivity(Activity activity);
 }
