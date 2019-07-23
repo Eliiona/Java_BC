@@ -1,5 +1,7 @@
 package com.codeassist.CodeAssist.Model;
 
+import java.util.Collection;
+
 import javax.persistence.*;
 
 
@@ -12,8 +14,8 @@ public class Role {
 
     private String name;
 
-    @OneToOne(mappedBy = "role")
-    private User user;
+    @OneToMany(mappedBy = "role")
+    private Collection<User> user;
 
     public Long getId() {
         return id;
@@ -31,11 +33,11 @@ public class Role {
         this.name = name;
     }
 
-    public User getUser() {
+    public Collection<User> getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Collection<User> user) {
         this.user = user;
     }
 }

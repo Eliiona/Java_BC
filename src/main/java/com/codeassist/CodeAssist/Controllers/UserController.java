@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.codeassist.CodeAssist.Model.Activity;
 import com.codeassist.CodeAssist.Model.Issue;
+import com.codeassist.CodeAssist.Model.Reply;
 import com.codeassist.CodeAssist.Model.User;
 import com.codeassist.CodeAssist.Repo.ActivityRepo;
 import com.codeassist.CodeAssist.Repo.IssueRepo;
+import com.codeassist.CodeAssist.Repo.ReplyRepo;
 import com.codeassist.CodeAssist.Repo.UserRepo;
 import com.codeassist.CodeAssist.Service.SecurityService;
 import com.codeassist.CodeAssist.Service.UserService;
@@ -26,6 +28,9 @@ import com.codeassist.CodeAssist.Validator.UserValidator;
 
 @Controller
 public class UserController {
+	@Autowired
+	private ReplyRepo replyRepo;
+	
 	@Autowired
 	private UserRepo userRepo;
 	
@@ -110,6 +115,8 @@ public class UserController {
         return "thymeleaf/myProfile";
     }
     
+    //Activity controller--------------------------------------------------------------------------------------------------
+    
     @GetMapping("/exercisePage") //goes to webapp folder!!!
     public String task(Model model, HttpServletRequest request) {
     	model.addAttribute("activityList", activityRepo.findAll());
@@ -151,7 +158,30 @@ public class UserController {
     }
     
     
-    //Activity Controller-----------------------------------------------------------------------------------------
+    //Current Issue controller-----------------------------------------------------------------------------------------
+    @GetMapping("/issue/{id}")
+    public String currentIssueGet(Model model, @PathVariable(name = "id") int id, Reply reply) {
+    	Issue issue = issueRepo.findById(id).get();
+    	model.addAttribute("activityList", activityRepo.findAll());
+    	model.addAttribute("issue", issue);
+    	model.addAttribute("replyList", replyRepo.findByIssue(issue));
+    	return "thymeleaf/comments";
+    }
+    
+    @PostMapping("/issue/{id}")
+    public String currentIssuePost(@PathVariable(name = "id") int id, Reply reply) {
+    	reply.setDate();
+    	String loggedInUsername = securityService.findLoggedInUsername();
+    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
+    	reply.setUser(loggedInUser);
+    	reply.setIssue(issueRepo.findById(id).get());
+    	replyRepo.save(reply);
+    	return "redirect:/issue/" + id;
+    }
+    
+    
+    
+    
     
     
 }
