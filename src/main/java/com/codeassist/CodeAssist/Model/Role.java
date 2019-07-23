@@ -10,8 +10,10 @@ import javax.persistence.*;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id_role")
     private Long id;
-
+    
+    @Column(name = "Name")
     private String name;
 
     @OneToMany(mappedBy = "role")
