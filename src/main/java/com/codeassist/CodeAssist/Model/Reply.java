@@ -1,5 +1,7 @@
 package com.codeassist.CodeAssist.Model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -24,10 +26,10 @@ public class Reply {
 	private String replyText;
 	
 	@Column(name = "status")
-	private boolean isSolution;
+	private boolean isSolution = false;
 	
 	@Column(name = "date")
-	private Date creationDate;
+	private String date;
 	
 	@ManyToOne
 	@JoinColumn(name = "Id_user")
@@ -42,7 +44,6 @@ public class Reply {
 	}
 	
 	public Reply(String text ) {
-		this.creationDate = new Date();
 		this.replyText = text;
 		this.isSolution = false;
 	}
@@ -67,19 +68,31 @@ public class Reply {
 		this.isSolution = isSolution;
 	}
 
-	public Date getCreationDate() {
-		return creationDate;
+	public String getDate() {
+		return date;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
+	public void setDate() {
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm MM/dd");
+		Date dateNow = new Date();
+		date = dateFormat.format(dateNow);
 	}
 
-	//public User getUser() {
-	//	return user;
-	//}
+	public User getUser() {
+		return user;
+	}
 
-	//public void setUser(User user) {
-	//	this.user = user;
-	//}
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Issue getIssue() {
+		return issue;
+	}
+
+	public void setIssue(Issue issue) {
+		this.issue = issue;
+	}
+	
+	
 }
