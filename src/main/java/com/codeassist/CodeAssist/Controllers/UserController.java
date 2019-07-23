@@ -1,6 +1,8 @@
 package com.codeassist.CodeAssist.Controllers;
 
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.codeassist.CodeAssist.Model.Activity;
@@ -127,12 +130,13 @@ public class UserController {
     		if (activity == null){
     			title = "No such activity";
     		}else{
-    			title = activityName;
     			model.addAttribute("issueList", issueRepo.findByActivity(activity));
+    			title = activityName;
     		}
     	}
-
+    	
     	model.addAttribute("title", title);
+	
     	return "thymeleaf/exercisePage";
     }
     //New Issue Controller----------------------------------------------------------------------------------------
@@ -153,9 +157,10 @@ public class UserController {
     	issue.setActivity(activity);
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
-    	issue.setUser(loggedInUser);   	
+    	issue.setUser(loggedInUser);
+    	int issueId = issue.getId_issue();
     	issueRepo.save(issue);
-    	return "redirect:/myProfile";
+    	return "redirect:/issue/" + issueId;
     }
     
     
@@ -180,7 +185,7 @@ public class UserController {
     	reply.setIssue(issueRepo.findById(issueId).get());
     	replyRepo.save(reply);
     	return "redirect:/issue?id=" + issueId;
-    }
+}
     
     //Admin controller----------------------------------------------------------------------------------------------------
     @GetMapping("/admin")
@@ -197,6 +202,7 @@ public class UserController {
     	}
     	return"redirect:/admin";
     }
+
     
     
     
