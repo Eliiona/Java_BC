@@ -452,6 +452,7 @@ input.signup[type=text], input.signup[type=password] {
 .question_box {
 	width: 70%;
 	margin: auto;
+	min-height: 100px;
 	border: 1px solid;
 	color: black;
 	box-sizing: border-box;
