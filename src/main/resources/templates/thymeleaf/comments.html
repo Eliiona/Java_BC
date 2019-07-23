@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="../../static/css/style.css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 </head>
 
 <body>
@@ -40,7 +41,68 @@
 		</div>
 
 		<div class="work_box">
-			<h2>Activity 07</h2>
+			<h2 th:text="${title}">No issue selected</h2>
+			<div class="container-fluid" style="background-color: rgba(241, 243, 243, 0.95); margin: 20px">
+			<div class ="row" >
+				<div class="col">
+					<b><div class="row">
+						<div class="col-sm-2 col-xs-4" style="padding-top: 10px">
+							<p th:text=${issue.getExercise().getName()}>Activity
+							</p>
+							<form method="POST" action="#" th:object="${update}" th:if="${isOwner}" >
+							<button th:if = "${!issue.isSolved()}" type="submit" class="btn btn-default" aria-label="Left Align" title="Close Issue">
+									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+							</button>
+							<button th:else type="submit" class="btn btn-default" aria-label="Left Align" title="Re-open Issue">
+									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							</button>
+						</form>
+						</div>
+						<div class="col-sm-8 col-xs-4">
+							<h3 th:text=${issue.getTitle()} style = "color: #666; word-wrap: break-word">Lorem sdhgbaskdhģakhdakshdģak dsahgdahšķdģāksdhģa</h3>
+						</div>
+						<div class="col-sm-2 col-xs-4" style = "text-align: left; padding-top: 10px">
+								<p>Posted by: <span th:text=${issue.getUsername}>Aaaa</span><br>
+								Date: <span th:text="${issue.getDate()}">16.07.2019</span><br>
+								Replies: <span th:text="${issue.getReplyForIssues()}">14</span><br>
+								Is solved: <span th:text="${issue.isSolved()}">false</span></p>
+						</div>
+					</div></b>
+					<div class="row" style=" margin: 20px">
+						<div class = "col-sm-auto" style="text-align: left">
+							<h4 >Description:</h4>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta aperiam architecto, ea sequi nisi tenetur ipsam, exercitationem quo unde consequuntur officia? Iure porro rem laborum debitis similique, quo blanditiis sit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sint sequi dignissimos omnis porro enim debitis fugiat iure, ipsam vero voluptatibus consequuntur perspiciatis recusandae possimus eius sit et quo quam!</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class = "container-fluid" style="background-color: rgba(241, 243, 243, 0.80); margin: 20px; padding: 30px">
+			<div class="row" th:each="comment:${replyList}">
+				<div class="col-sm-2 col-xs-1" style="text-align: left">
+					
+						<strong><span th:text=${comment.getUser().getUserame()}>User</span>:</strong><br>
+						Date: <span th:text="${comment.getDate()}">16.07.2019</span>
+					
+				</div>
+				<div class="col" style ="word-wrap: break-word">
+					<p th:text = ${comment.}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, atque dolorum laboriosam sapiente corrupti quam mollitia dignissimos rem necessitatibus eos quia rerum consectetur. Consectetur nesciunt suscipit odio quisquam, ea quis.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class = "col">
+			<hr>
+			<form action="" method ="POST" th:object=${reply} id="comment" >
+				<textarea  class="form-control z-depth-1" name="comment" row ="50" id="comment"   placeholder="Add Comment" form="comment" ></textarea><br>
+				<input type="submit" value="Comment">
+			</form>
+		</div>
+		</div>
+		</div>
+
+	
 		</div>
 
 	</div>
@@ -56,5 +118,7 @@
 	
 
 	</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>
