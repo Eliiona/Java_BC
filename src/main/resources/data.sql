@@ -11,7 +11,4 @@ INSERT INTO ACTIVITY_TABLE VALUES (6, 'Activity06')
 INSERT INTO USER_TABLE VALUES (1, 'name', '$2a$10$sbLRDIGdFCQ/.46x6v3UAudUJILlgyZfzfyKKNx6Q2dct9cagvAPu', 'surname', 'code', 1)
 INSERT INTO USER_TABLE VALUES (2, 'admin', '$2a$10$YbdhgRSW1QTwOO.RKBt6iOCVopr27irpuxpM2lLUjAntmDKZO5iey', 'admin', 'admin', 2)
 
-INSERT INTO ISSUE_TABLE VALUES(1, '15:30 09/10', 'Description', FALSE, 'Title 01', 1, 1)
-INSERT INTO ISSUE_TABLE VALUES(2, '15:30 09/10', 'Description', FALSE, 'Title 02', 1, 1)
-INSERT INTO ISSUE_TABLE VALUES(3, '15:30 09/10', 'Description', FALSE, 'Title 03', 1, 1)
 

@@ -69,7 +69,7 @@
 					<div class="row" style=" margin: 20px">
 						<div class = "col-sm-auto" style="text-align: left">
 							<h4 >Description:</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta aperiam architecto, ea sequi nisi tenetur ipsam, exercitationem quo unde consequuntur officia? Iure porro rem laborum debitis similique, quo blanditiis sit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sint sequi dignissimos omnis porro enim debitis fugiat iure, ipsam vero voluptatibus consequuntur perspiciatis recusandae possimus eius sit et quo quam!</p>
+							<p th:text=${issue.getDescription()}></p>
 						</div>
 					</div>
 
@@ -81,19 +81,19 @@
 			<div class="row" th:each="comment:${replyList}">
 				<div class="col-sm-2 col-xs-1" style="text-align: left">
 					
-						<strong><span th:text=${comment.getUser().getUserame()}>User</span>:</strong><br>
+						<strong><span th:text=${comment.getUser().getUsername()}>User</span>:</strong><br>
 						Date: <span th:text="${comment.getDate()}">16.07.2019</span>
 					
 				</div>
 				<div class="col" style ="word-wrap: break-word">
-					<p th:text = ${comment.}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, atque dolorum laboriosam sapiente corrupti quam mollitia dignissimos rem necessitatibus eos quia rerum consectetur. Consectetur nesciunt suscipit odio quisquam, ea quis.</p>
+					<p th:text = ${comment.getReplyText()}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, atque dolorum laboriosam sapiente corrupti quam mollitia dignissimos rem necessitatibus eos quia rerum consectetur. Consectetur nesciunt suscipit odio quisquam, ea quis.</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class = "col">
 			<hr>
 			<form action="" method ="POST" th:object=${reply} id="comment" >
-				<textarea th:field="*{comment}" class="form-control z-depth-1" name="comment" row ="50" id="comment"   placeholder="Add Comment" form="comment" ></textarea><br>
+				<textarea th:field="*{replyText}" class="form-control z-depth-1" name="comment" row ="50" id="comment"   placeholder="Add Comment" form="comment" ></textarea><br>
 				<input type="submit" value="Comment">
 			</form>
 		</div>
