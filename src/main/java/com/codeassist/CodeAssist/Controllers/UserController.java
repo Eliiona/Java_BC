@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.codeassist.CodeAssist.Model.Activity;
@@ -130,11 +129,12 @@ public class UserController {
     		if (activity == null){
     			title = "No such activity";
     		}else{
-		model.addAttribute("issueList", issueRepo.findByActivity(activity));
+    			model.addAttribute("issueList", issueRepo.findByActivity(activity));
     			title = activityName;
+    			model.addAttribute("issueList", issueRepo.findByActivity(activity));
     		}
     	}
-    	
+
     	model.addAttribute("title", title);
 	
     	return "thymeleaf/exercisePage";
@@ -152,12 +152,13 @@ public class UserController {
     @PostMapping("/newIssue")
     public String newIssuePost(Issue issue) {
     	issue.setDate();
+    	Activity activity = activityRepo.findById(issue.getActivity().getId()).get();
+    	issue.setActivity(activity);
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
-    	issue.setUser(loggedInUser);
-    	int issueId = issue.getId_issue();
+    	issue.setUser(loggedInUser);   	
     	issueRepo.save(issue);
-    	return "redirect:/issue/" + issueId;
+    	return "redirect:/myProfile";
     }
     
     

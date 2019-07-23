@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.data.repository.CrudRepository;
 
+import com.codeassist.CodeAssist.Model.Activity;
 import com.codeassist.CodeAssist.Model.Issue;
 import com.codeassist.CodeAssist.Model.User;
 import com.codeassist.CodeAssist.Model.Activity;

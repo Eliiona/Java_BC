@@ -45,7 +45,7 @@
 
 			<form class="new_issue" id="form" method="POST" action="#" th:action="@{/newIssue}" th:object="${issue}">		
 				<p class="new_issue_lbl" style="display: block">Exercise:
-				<select name ="activity" th:field = "*{activity}">
+				<select name ="activity" th:field="*{activity.id}">
 					<option th:each="activity2:${activityList2}"
 					th:value="${activity2.getId()}"
 					th:text="${activity2.getName()}">--</option>
@@ -53,12 +53,12 @@
 		
 				<div class="new_issue_lbl">
 					<p>Issue title:</p>
-					<input class= "new_issue_in" type="text" name="title" placeholder="Issue title" required>
+					<input class= "new_issue_in" type="text" name="title" placeholder="Issue title" th:field="*{title}" required>
 				</div>	
 
 				<div >
 					<p class="new_issue_lbl">Description:</p>
-					<textarea class= "new_issue_txt"rows="8" cols="100" form = "form" placeholder="Write the description of the issue.." 
+					<textarea class= "new_issue_txt"rows="8" cols="100" form = "form" th:field="*{description}" placeholder="Write the description of the issue.."
 					required></textarea> 
 				</div>
 				<button type="submit" class="postbtn">Post issue</button>
