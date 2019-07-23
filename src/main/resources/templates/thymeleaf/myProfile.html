@@ -40,12 +40,12 @@
 		</div>
 
 		<div class="work_box">
-			<h2>My profile</h2>
+			<h2>My profileeeeeeeeeee</h2>
 
 			<div th:each="issue:${issueList}">
 				<div class="myquestion_box">
 					<p th:text="${issue.getExercise().getName()}">Activity 01</p>
-					<p th:text="${issue.getTitle()}"><a href="/">Issue title</a></p>
+					<a th:href= "@{/issue(id=${issue.getId_issue()})}"><h2 th:text="${issue.getTitle()}">Issue title</h2></a>
 					<p style="display: inline-block;" >Posted by:</p>	
 					<p style="display: inline-block;" th:text="${issue.getUser().getNameAndSurname()}">abcd</p>
 					<p style="display: inline-block;" >Date: </p>
@@ -70,8 +70,6 @@
 			var queryString = "?activity=" + value1;
 			window.location.href = "exercisePage" + queryString;
 		}
-		// Gets passed parameter and displays it on header
-		
 	
 	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
