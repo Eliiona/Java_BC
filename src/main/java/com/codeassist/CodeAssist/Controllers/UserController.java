@@ -162,25 +162,27 @@ public class UserController {
     
     
     //Current Issue controller-----------------------------------------------------------------------------------------
-    @GetMapping("/issue/{id}")
-    public String currentIssueGet(Model model, @PathVariable(name = "id") int id, Reply reply) {
-    	Issue issue = issueRepo.findById(id).get();
+    @GetMapping("/issue")
+    public String currentIssueGet(Model model, HttpServletRequest request, Reply reply) {
+    	int issueId = Integer.parseInt(request.getParameter("id"));
+    	Issue issue = issueRepo.findById(issueId).get();
     	model.addAttribute("activityList", activityRepo.findAll());
     	model.addAttribute("issue", issue);
     	model.addAttribute("replyList", replyRepo.findByIssue(issue));
     	return "thymeleaf/comments";
     }
     
-    @PostMapping("/issue/{id}")
-    public String currentIssuePost(@PathVariable(name = "id") int id, Reply reply) {
+    @PostMapping("/issue")
+    public String currentIssuePost(HttpServletRequest request, Reply reply) {
+    	int issueId = Integer.parseInt(request.getParameter("id"));
     	reply.setDate();
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	reply.setUser(loggedInUser);
-    	reply.setIssue(issueRepo.findById(id).get());
+    	reply.setIssue(issueRepo.findById(issueId).get());
     	replyRepo.save(reply);
-    	return "redirect:/issue/" + id;
-    }
+    	return "redirect:/issue?id=" + issueId;
+}
     
     //Admin controller----------------------------------------------------------------------------------------------------
     @GetMapping("/admin")

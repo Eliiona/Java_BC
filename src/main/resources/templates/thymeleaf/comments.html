@@ -50,11 +50,9 @@
 							<p th:text=${issue.getExercise().getName()}>Activity
 							</p>
 							<form method="POST" action="#" th:object="${update}" th:if="${isOwner}" >
-							<button th:if = "${!issue.isSolved()}" type="submit" class="btn btn-default" aria-label="Left Align" title="Close Issue">
-									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-							</button>
-							<button th:else type="submit" class="btn btn-default" aria-label="Left Align" title="Re-open Issue">
-									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+							<input th:field="*{upd}" type="button" class="btn btn-default" aria-label="Left Align" title="Close Issue" th:value = "1">
+									<span th:if = "${!issue.isSolved()}" class="glyphicon glyphicon-ok" aria-hidden="true" title="Close Issue"></span>
+									<span th:else class="glyphicon glyphicon-remove" aria-hidden="true" title="Re-open issue"></span>
 							</button>
 						</form>
 						</div>
@@ -62,9 +60,9 @@
 							<h3 th:text=${issue.getTitle()} style = "color: #666; word-wrap: break-word">Lorem sdhgbaskdhģakhdakshdģak dsahgdahšķdģāksdhģa</h3>
 						</div>
 						<div class="col-sm-2 col-xs-4" style = "text-align: left; padding-top: 10px">
-								<p>Posted by: <span th:text=${issue.getUsername}>Aaaa</span><br>
+								<p>Posted by: <span th:text=${issue.getUser().getUsername()}>Aaaa</span><br>
 								Date: <span th:text="${issue.getDate()}">16.07.2019</span><br>
-								Replies: <span th:text="${issue.getReplyForIssues()}">14</span><br>
+								Replies: <span th:text="${issue.getReplysForIssue()}">14</span><br>
 								Is solved: <span th:text="${issue.isSolved()}">false</span></p>
 						</div>
 					</div></b>
@@ -95,7 +93,7 @@
 				<div class = "col">
 			<hr>
 			<form action="" method ="POST" th:object=${reply} id="comment" >
-				<textarea  class="form-control z-depth-1" name="comment" row ="50" id="comment"   placeholder="Add Comment" form="comment" ></textarea><br>
+				<textarea th:field="*{comment}" class="form-control z-depth-1" name="comment" row ="50" id="comment"   placeholder="Add Comment" form="comment" ></textarea><br>
 				<input type="submit" value="Comment">
 			</form>
 		</div>
