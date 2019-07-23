@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
 	<title>Comments</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 	<link rel="stylesheet" href="../../static/css/style.css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 </head>
 
 <body>
@@ -49,7 +49,7 @@
 						<div class="col-sm-2 col-xs-4" style="padding-top: 10px">
 							<p th:text=${issue.getExercise().getName()}>Activity
 							</p>
-							<form id="update" method="POST" action="#" th:object="${update}" th:method="update" th:if="${isOwner}" >
+							<form id="update" method="POST" action="" th:object="${update}" th:method="update" th:if="${isOwner}" >
 								<input type="hidden" value="update" form="update">
 							<button type="submit" class="btn btn-default" aria-label="Left Align" title="Close Issue">
 									<span th:unless = "${issue.isSolved()}" class="glyphicon glyphicon-ok" aria-hidden="true" title="Close Issue"></span>

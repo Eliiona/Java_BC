@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.codeassist.CodeAssist.Model.Activity;
 import com.codeassist.CodeAssist.Model.Helper;
@@ -185,16 +186,24 @@ public class UserController {
     }
     
     @PostMapping("/issue")
-    public String currentIssuePost(HttpServletRequest request, Reply reply) {
+    public String currentIssuePost(HttpServletRequest request, Reply reply /*, String update*/) {
     	int issueId = Integer.parseInt(request.getParameter("id"));
-    	reply.setDate();
-    	String loggedInUsername = securityService.findLoggedInUsername();
-    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
-    	reply.setUser(loggedInUser);
-    	reply.setIssue(issueRepo.findById(issueId).get());
-    	replyRepo.save(reply);
+    	Issue issue = issueRepo.findById(issueId).get();
+    	if (reply != null){
+	    	reply.setDate();
+	    	String loggedInUsername = securityService.findLoggedInUsername();
+	    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
+	    	reply.setUser(loggedInUser);
+	    	reply.setIssue(issue);
+	    	replyRepo.save(reply);
+	    	}
+    	/*
+    	if (update.equals("update")){
+    		issue.update();
+    	}*/
     	return "redirect:/issue?id=" + issueId;
 }
+
     
     //Admin controller----------------------------------------------------------------------------------------------------
     @GetMapping("/admin")
