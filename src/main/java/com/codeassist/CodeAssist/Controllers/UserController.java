@@ -167,7 +167,7 @@ public class UserController {
     	model.addAttribute("activityList", activityRepo.findAll());
     	if (!tryParseInt(request.getParameter("id"))){
     		model.addAttribute("title", "Please select a valid issue");
-    		return "thymeleaf/comments";
+    		return"redirect:/newIssue";
     	}
     	System.out.println(request.getParameter("id"));
     	int issueId = Integer.parseInt(request.getParameter("id"));
