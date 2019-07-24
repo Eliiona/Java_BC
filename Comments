@@ -12,6 +12,10 @@ https://www.oodlestechnologies.com/blogs/Use-Thymeleaf-And-JSP-Simultaneously-In
 https://drive.google.com/file/d/1Za6cCViRFUQEqKG6qAV2yOuuxlVDjyqv/view?usp=sharing
 https://drive.google.com/file/d/10z9W99jFSZtMlSGpD-u0D5Xtb5wezHE5/view?usp=sharing
 
+http://www.h2database.com/html/tutorial.html
+http://h2database.com/html/features.html#connection_modes
+http://h2database.com/html/features.html#auto_mixed_mode
+
 Instructions for git:
 1) Open console in directory where you're going to make the project
 2) Type git clone https://github.com/Eliiona/Java_BC.git -- will download current files into a new folder Java_BC
