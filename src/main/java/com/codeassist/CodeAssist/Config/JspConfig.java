@@ -6,6 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+/*
+ * Custom config class that allows JSP and Thymeleaf use in same project. Additional configuration options are set in
+ * src/main/resources/static/application.properties file
+ */
+
 @Configuration
 public class JspConfig {
     @Value("${spring.view.prefix}")
