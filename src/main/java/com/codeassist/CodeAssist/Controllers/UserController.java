@@ -225,6 +225,11 @@ public class UserController {
     
     @PostMapping("/admin")
     public String adminPost(Helper helper) {
+    	if(helper.getActivityCount() <= 1) {
+    		Activity activity = new Activity();
+    		activity.setName(helper.getActivityName());
+    		activityRepo.save(activity);
+    	} else {
     	for(int i = 1; i <= helper.getActivityCount(); i++) {
     		Activity activity = new Activity();
     		if(i < 10) {
@@ -234,6 +239,7 @@ public class UserController {
     			activity.setName(helper.getActivityName() + i);
     		}
     		activityRepo.save(activity);
+    	}
     	}
     	return"redirect:/";
     }
