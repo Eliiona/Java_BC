@@ -112,9 +112,6 @@ public class UserController {
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	model.addAttribute("issueList", issueRepo.findByUser(loggedInUser));
     	model.addAttribute("title", "My Issues");
-    	for (Issue i : issueRepo.findByUser(loggedInUser)) {
-			System.out.println(i.getTitle());
-		}
         return "thymeleaf/myProfile";
     }
     
@@ -201,12 +198,17 @@ public class UserController {
 	    	reply.setIssue(issue);
 	    	replyRepo.save(reply);
 	    	}
-    	/*
-    	if (update.equals("update")){
-    		issue.update();
-    	}*/
     	return "redirect:/issue?id=" + issueId;
-}
+    }
+    
+    @PostMapping("/updateIssue")
+    public String updateIssueStatus(HttpServletRequest request) {
+    	int issueId = Integer.parseInt(request.getParameter("id"));
+    	Issue issue = issueRepo.findById(issueId).get();
+    	issue.update();
+    	issueRepo.save(issue);
+    	return "redirect:/issue?id=" + issueId;
+    }
 
     
     //Admin controller----------------------------------------------------------------------------------------------------
