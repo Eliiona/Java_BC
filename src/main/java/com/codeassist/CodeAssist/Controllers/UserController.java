@@ -109,6 +109,7 @@ public class UserController {
     	model.addAttribute("activityList", activityRepo.findAll());
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
+    	model.addAttribute("isAdmin", loggedInUser.getRole().getId()==2);
     	model.addAttribute("issueList", issueRepo.findByUser(loggedInUser));
     	model.addAttribute("title", "My Issues");
         return "thymeleaf/myProfile";
@@ -119,6 +120,9 @@ public class UserController {
     @GetMapping("/exercisePage") //goes to webapp folder!!!
     public String task(Model model, HttpServletRequest request) {
     	model.addAttribute("activityList", activityRepo.findAll());
+    	String loggedInUsername = securityService.findLoggedInUsername();
+    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
+    	model.addAttribute("isAdmin", loggedInUser.getRole().getId()==2);
     	String activityName = request.getParameter("activity");
     	String title;
     	if (activityName == null||activityName==""){
@@ -143,6 +147,9 @@ public class UserController {
     public String newIssueGet(Issue issue, Model model) {
     	model.addAttribute("activityList", activityRepo.findAll());
     	model.addAttribute("activityList2", activityRepo.findAll());
+    	String loggedInUsername = securityService.findLoggedInUsername();
+    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
+    	model.addAttribute("isAdmin", loggedInUser.getRole().getId()==2);
     	return "thymeleaf/newIssue";
     }
     
@@ -165,6 +172,9 @@ public class UserController {
     @GetMapping("/issue")
     public String currentIssueGet(Model model, HttpServletRequest request, Reply reply) {
     	model.addAttribute("activityList", activityRepo.findAll());
+    	String loggedInUsername = securityService.findLoggedInUsername();
+    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
+    	model.addAttribute("isAdmin", loggedInUser.getRole().getId()==2);
     	if (!tryParseInt(request.getParameter("id"))){
     		model.addAttribute("title", "Please select a valid issue");
     		return"redirect:/newIssue";
@@ -180,7 +190,6 @@ public class UserController {
     		model.addAttribute("issue", issue);
     		model.addAttribute("replyList", replyRepo.findByIssue(issue));
     		boolean isOwner = false;
-        	String loggedInUsername = securityService.findLoggedInUsername();
         	if (issue.getUser().getUsername().equals(loggedInUsername)){
         		isOwner=true;
         	}
@@ -192,6 +201,7 @@ public class UserController {
     
     @PostMapping("/issue")
     public String currentIssuePost(HttpServletRequest request, Reply reply) {
+
     	System.out.println(request.getParameter("id"));
     	int issueId = Integer.parseInt(request.getParameter("id"));
     	Issue issue = issueRepo.findById(issueId).get();
@@ -241,7 +251,7 @@ public class UserController {
     		activityRepo.save(activity);
     	}
     	}
-    	return"redirect:/";
+    	return"redirect:/admin";
     }
 
     boolean tryParseInt(String value) {  

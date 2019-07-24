@@ -29,7 +29,8 @@
 	    	</div>
 
 	    	<div id="create_new_issue_btn" class="profile_logout_buttons">
-	    		<p><a href="/newIssue">Open new issue</a></p>
+				<p><a href="/newIssue">Open new issue</a></p>
+				<p th:if="${isAdmin}"><a href="/admin">Go to admin</a></p>
 	    	</div>
 
 		</div>
