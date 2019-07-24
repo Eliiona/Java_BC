@@ -157,22 +157,26 @@ public class UserController {
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
     	issue.setUser(loggedInUser);
     	issueRepo.save(issue);
-    	return "redirect:/myProfile";
+    	return "redirect:/issue?id=" + issue.getId_issue();
     }
     
     
     //Current Issue controller-----------------------------------------------------------------------------------------
     @GetMapping("/issue")
     public String currentIssueGet(Model model, HttpServletRequest request, Reply reply) {
+    	model.addAttribute("activityList", activityRepo.findAll());
+    	if (!tryParseInt(request.getParameter("id"))){
+    		model.addAttribute("title", "Please select a valid issue");
+    		return "thymeleaf/comments";
+    	}
     	System.out.println(request.getParameter("id"));
     	int issueId = Integer.parseInt(request.getParameter("id"));
-    	Issue issue = null;
     	if(!issueRepo.findById(issueId).isPresent()) { 
     		return"redirect:/newIssue";    		
     	}
     	else {
+        	Issue issue = null;
     		issue = issueRepo.findById(issueId).get();
-    		model.addAttribute("activityList", activityRepo.findAll());
     		model.addAttribute("issue", issue);
     		model.addAttribute("replyList", replyRepo.findByIssue(issue));
     		boolean isOwner = false;
@@ -234,7 +238,14 @@ public class UserController {
     	return"redirect:/";
     }
 
-    
+    boolean tryParseInt(String value) {  
+        try {  
+            Integer.parseInt(value);  
+            return true;  
+         } catch (NumberFormatException e) {  
+            return false;  
+         }  
+   }
     
     
     
