@@ -95,7 +95,7 @@
 			<hr>
 			<div class="row">
 				<div class = "col">
-			<form action="" method ="POST" th:object=${reply} id="comment" th:action="@{/issue}" >
+			<form action="" method ="POST" th:object=${reply} id="comment" th:action="@{/issue?id=}+${issue.getId_issue()}" >
 				<textarea th:field="*{replyText}" class="form-control z-depth-1" name="comment" row ="50" id="comment"   placeholder="Add Comment" form="comment" ></textarea><br>
 				<input type="submit" value="Comment" form = "comment">
 			</form>
