@@ -22,7 +22,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    //Configuration method which allows access only to select resources without authorization
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -38,8 +37,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .logout()
                 .permitAll();
         
-        //This modification is used to be able to connect to H2-console. By default when using Spring boot security it
-        //is not possible
         http.csrf().disable();
         http.headers().frameOptions().disable();
     }
