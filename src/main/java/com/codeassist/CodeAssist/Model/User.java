@@ -17,7 +17,7 @@ import javax.persistence.Transient;
 public class User {
 	//variables
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "Id_user")
 	private int idUser;
 	

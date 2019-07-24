@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "ActivityTable")
 public class Activity {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "Id_Activity")
     private int id;
 	
