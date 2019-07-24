@@ -165,10 +165,11 @@ public class UserController {
     //Current Issue controller-----------------------------------------------------------------------------------------
     @GetMapping("/issue")
     public String currentIssueGet(Model model, HttpServletRequest request, Reply reply) {
+    	System.out.println(request.getParameter("id"));
     	int issueId = Integer.parseInt(request.getParameter("id"));
     	Issue issue = null;
     	if(!issueRepo.findById(issueId).isPresent()) { 
-    		return"redirect:/myProfile";    		
+    		return"redirect:/newIssue";    		
     	}
     	else {
     		issue = issueRepo.findById(issueId).get();
@@ -187,10 +188,12 @@ public class UserController {
     }
     
     @PostMapping("/issue")
-    public String currentIssuePost(HttpServletRequest request, Reply reply /*, String update*/) {
+    public String currentIssuePost(HttpServletRequest request, Reply reply) {
+    	System.out.println(request.getParameter("id"));
     	int issueId = Integer.parseInt(request.getParameter("id"));
     	Issue issue = issueRepo.findById(issueId).get();
-    	if (reply != null){
+    	String test = reply.getReplyText().replace(" ", "").replace("\n", "").replace("\r", "");
+    	if (!test.isEmpty()){
 	    	reply.setDate();
 	    	String loggedInUsername = securityService.findLoggedInUsername();
 	    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
@@ -219,12 +222,17 @@ public class UserController {
     
     @PostMapping("/admin")
     public String adminPost(Helper helper) {
-    	for(int i = 0; i < helper.getActivityCount(); i++) {
+    	for(int i = 1; i <= helper.getActivityCount(); i++) {
     		Activity activity = new Activity();
-    		activity.setName(helper.getActivityName() + i);
+    		if(i < 10) {
+    		activity.setName(helper.getActivityName() + "0" + i);
+    		}
+    		else {
+    			activity.setName(helper.getActivityName() + i);
+    		}
     		activityRepo.save(activity);
     	}
-    	return"redirect:/admin";
+    	return"redirect:/";
     }
 
     

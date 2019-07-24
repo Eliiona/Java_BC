@@ -15,27 +15,23 @@
 			<p>qwerty</p>
 		</div> -->
 
-		<form class="login" method="POST" action="#" th:action="@{/}" th:object="${user}" style="border:1px solid #ccc; margin: auto; height: 500px;">
+		<form class="login" method="POST" action="#" th:action="@{/admin}" th:object="${helper}" style="border:1px solid #ccc; margin: auto; height: 500px;">
 	        <div class="container" style="width: 80%">
 	          <h1 style="font-size: 30px";>Activity name generator</h1>
 	          
 	          <hr>
 		      <span>
 		          <label for="user"><b>Activity type:</b></label><br>
-		          <input class = "signup" type="text" placeholder="Enter type of activity to generate" th:field="*{bcCode}" name="user" required><br>
+		          <input class = "signup" type="text" placeholder="Enter type of activity to generate" th:field="*{activityName}" name="user" required><br>
 		      </span>      
 	          <div>
 	              <label for="psw"><b>Number of activities:</b></label><br>
-	              <input class = "signup" type="password" placeholder="Enter number of activities to generata" th:field="*{password}" name="psw" required>
+	              <input class = "signup" type="text" placeholder="Enter number of activities to generata" th:field="*{activityCount}" name="psw" required>
 	          </div> 
 	          <div>      
 	            <button type="submit" class="loginbtn">Generate</button>
 	          </div>
 	          <hr style="margin-top: 30px;">
-	          <p>Delete all database</p>
-	          <div>      
-	            <a href="/signup"><button style="ma" type="submit" class="loginbtn">Delete</button></a>
-	          </div>
 
 	        </div>
       	</form> 
