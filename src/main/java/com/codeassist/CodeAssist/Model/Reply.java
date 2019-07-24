@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class Reply {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "Id_reply")
 	private int replyId;
 	
