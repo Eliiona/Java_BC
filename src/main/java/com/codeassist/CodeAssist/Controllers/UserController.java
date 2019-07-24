@@ -189,7 +189,7 @@ public class UserController {
     public String currentIssuePost(HttpServletRequest request, Reply reply /*, String update*/) {
     	int issueId = Integer.parseInt(request.getParameter("id"));
     	Issue issue = issueRepo.findById(issueId).get();
-    	if (reply != null){
+    	if (!reply.getReplyText().isEmpty() || reply != null){
 	    	reply.setDate();
 	    	String loggedInUsername = securityService.findLoggedInUsername();
 	    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
@@ -218,12 +218,17 @@ public class UserController {
     
     @PostMapping("/admin")
     public String adminPost(Helper helper) {
-    	for(int i = 0; i < helper.getActivityCount(); i++) {
+    	for(int i = 1; i <= helper.getActivityCount(); i++) {
     		Activity activity = new Activity();
-    		activity.setName(helper.getActivityName() + i);
+    		if(i < 10) {
+    		activity.setName(helper.getActivityName() + "0" + i);
+    		}
+    		else {
+    			activity.setName(helper.getActivityName() + i);
+    		}
     		activityRepo.save(activity);
     	}
-    	return"redirect:/admin";
+    	return"redirect:/";
     }
 
     
