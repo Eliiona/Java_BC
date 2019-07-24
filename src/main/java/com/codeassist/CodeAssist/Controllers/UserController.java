@@ -158,7 +158,6 @@ public class UserController {
     public String newIssuePost(Issue issue) {
     	issue.setDate();
     	Activity activity = activityRepo.findById(issue.getActivity().getId()).get();
-    	System.out.println("test test test");
     	issue.setActivity(activity);
     	String loggedInUsername = securityService.findLoggedInUsername();
     	User loggedInUser = userRepo.findByUsername(loggedInUsername);
@@ -179,7 +178,6 @@ public class UserController {
     		model.addAttribute("title", "Please select a valid issue");
     		return"redirect:/newIssue";
     	}
-    	System.out.println(request.getParameter("id"));
     	int issueId = Integer.parseInt(request.getParameter("id"));
     	if(!issueRepo.findById(issueId).isPresent()) { 
     		return"redirect:/newIssue";    		
@@ -201,8 +199,6 @@ public class UserController {
     
     @PostMapping("/issue")
     public String currentIssuePost(HttpServletRequest request, Reply reply) {
-
-    	System.out.println(request.getParameter("id"));
     	int issueId = Integer.parseInt(request.getParameter("id"));
     	Issue issue = issueRepo.findById(issueId).get();
     	String test = reply.getReplyText().replace(" ", "").replace("\n", "").replace("\r", "");

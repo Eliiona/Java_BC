@@ -71,7 +71,7 @@
 					<div class="row" style=" margin: 20px">
 						<div class = "col-sm-auto" style="text-align: left">
 							<h4 >Description:</h4>
-							<p th:text=${issue.getDescription()}></p>
+							<p th:text=${issue.getDescription()} style="white-space: pre-wrap;"></p>
 						</div>
 					</div>
 
@@ -80,16 +80,15 @@
 		</div>
 		<hr>
 		<div class = "container-fluid" style="background-color: rgba(241, 243, 243, 0.80); margin: 20px; padding: 30px">
-			<div class="row" th:each="comment:${replyList}" style="border: 1px;border-style: dotted">
-				<div class="col-sm-2 col-xs-1" style="text-align: left">
+			<div class="row" th:each="comment:${replyList}" style="border: 1px;border-style: dotted;border-block-color: #666; border-radius: 10px">
+				<div class="col-sm-2 col-xs-2" style="text-align: left">
 					
 						<strong>Posted by: </strong><span th:text=${comment.getUser().getUsername()}>User</span><br>
 						Date: <span th:text="${comment.getDate()}">16.07.2019</span>
 					
 				</div>
-				<hŗ>
-				<div class="col" style ="word-wrap: break-word; text-align: left">
-					<p th:text = ${comment.getReplyText()}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, atque dolorum laboriosam sapiente corrupti quam mollitia dignissimos rem necessitatibus eos quia rerum consectetur. Consectetur nesciunt suscipit odio quisquam, ea quis.</p>
+				<div class="col-sm-10 col-xs-10" style ="word-wrap: break-word; text-align: left">
+					<p th:text = ${comment.getReplyText()} style="white-space: pre-wrap;"></p>
 				</div>
 				
 			</div>
