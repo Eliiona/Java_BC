@@ -70,7 +70,7 @@
                 </div>
             </spring:bind>
 
-            <button class="btn btn-lg btn-secondary btn-block" type="submit">Submit</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
         </form:form>
 
     </div>

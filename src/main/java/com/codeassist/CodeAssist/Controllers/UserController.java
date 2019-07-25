@@ -53,7 +53,7 @@ public class UserController {
     
     //Registration controller-----------------------------------------------------------------------------
     /**
-     * 
+     * Passes User object to model and return registration view
      * @param model
      * @return
      */
@@ -63,7 +63,9 @@ public class UserController {
 
         return "jsp/registration";
     }
-
+    /*
+     * Validates all fields and returns error if there is any problem with the input or saves user in database if all fields are correct
+     */
     @PostMapping("/registration")
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
@@ -80,7 +82,7 @@ public class UserController {
     
     //Login controller-------------------------------------------------------------------------------------
     /**
-     * 
+     * Returns error if incorrect input in login screen
      * @param model
      * @param error
      * @param logout
@@ -100,7 +102,7 @@ public class UserController {
     
     //MyProfile Controller---------------------------------------------------------------------------------------
     /**
-     * 
+     * Return My Profile view, passes users issues, activity list,  page title, and checks if user is admin
      * @param model
      * @return
      */
@@ -116,8 +118,10 @@ public class UserController {
     }
     
     //Activity controller--------------------------------------------------------------------------------------------------
-    
-    @GetMapping("/exercisePage") //goes to webapp folder!!!
+    /*Returns Activity view , passes activity list, issue list for the current activity and title
+     * 
+     */
+    @GetMapping("/exercisePage")
     public String task(Model model, HttpServletRequest request) {
     	model.addAttribute("activityList", activityRepo.findAll());
     	String loggedInUsername = securityService.findLoggedInUsername();
@@ -142,7 +146,9 @@ public class UserController {
     	return "thymeleaf/exercisePage";
     }
     //New Issue Controller----------------------------------------------------------------------------------------
-    
+    /*
+     * Return new issue view, passes activity list
+     */
     @GetMapping("/newIssue")
     public String newIssueGet(Issue issue, Model model) {
     	model.addAttribute("activityList", activityRepo.findAll());
@@ -153,7 +159,9 @@ public class UserController {
     	return "thymeleaf/newIssue";
     }
     
-    
+    /*
+     * Creates issue and saves it in database
+     */
     @PostMapping("/newIssue")
     public String newIssuePost(Issue issue) {
     	issue.setDate();
@@ -168,6 +176,9 @@ public class UserController {
     
     
     //Current Issue controller-----------------------------------------------------------------------------------------
+    /*
+     * Returns current issue view, passes activity list, current issue and reply's for current issue
+     */
     @GetMapping("/issue")
     public String currentIssueGet(Model model, HttpServletRequest request, Reply reply) {
     	model.addAttribute("activityList", activityRepo.findAll());
@@ -196,7 +207,9 @@ public class UserController {
     	
     	return "thymeleaf/comments";
     }
-    
+    /*
+     * Posts a reply for current issue
+     */
     @PostMapping("/issue")
     public String currentIssuePost(HttpServletRequest request, Reply reply) {
     	int issueId = Integer.parseInt(request.getParameter("id"));
@@ -212,7 +225,9 @@ public class UserController {
 	    	}
     	return "redirect:/issue?id=" + issueId;
     }
-    
+    /*
+     * Updates issues status
+     */
     @PostMapping("/updateIssue")
     public String updateIssueStatus(HttpServletRequest request) {
     	int issueId = Integer.parseInt(request.getParameter("id"));
@@ -224,11 +239,16 @@ public class UserController {
 
     
     //Admin controller----------------------------------------------------------------------------------------------------
+    /*
+     * Returns Admin view
+     */
     @GetMapping("/admin")
     public String adminGet(Helper helper) {
     	return"thymeleaf/admin";
     }
-    
+    /*
+     * Generates activity list and saves it in database
+     */
     @PostMapping("/admin")
     public String adminPost(Helper helper) {
     	if(helper.getActivityCount() <= 1) {

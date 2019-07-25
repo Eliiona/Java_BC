@@ -16,7 +16,11 @@ public class JspConfig {
 
     @Value("${spring.view.view-names}")
     private String viewNames;
-
+    
+    /*
+     * Configuration to use jsp and thymeleaf in one project
+     * Please refer to application.properties for other project properties
+     */
     @Bean
     InternalResourceViewResolver jspViewResolver() {
         final InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

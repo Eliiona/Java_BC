@@ -10,7 +10,9 @@ import com.codeassist.CodeAssist.Model.User;
 import com.codeassist.CodeAssist.Service.UserService;
 
 
-
+/*
+ * Validates if all fields are correct while creating an account
+ */
 @Component
 public class UserValidator implements Validator{
 	   @Autowired
