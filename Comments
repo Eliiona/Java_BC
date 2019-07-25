@@ -58,3 +58,4 @@ INSERT INTO ISSUE_TABLE VALUES (2,  '15:30 09/10', 'Issue description ',  1, FAL
 
 https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example
 3qhcGW6R
+jdbc:h2:file:./src/resources/yourdbname
