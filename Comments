@@ -41,6 +41,8 @@ Instructions for git:
 
 List of comands - https://gist.github.com/davfre/8313299
 
+$2a$10$mzgE8qLgaudI4vFuP2GaBOqlwtktiPKF88LaGfNjR66iyo.Ki4CZK
+
 uploaded from Elinas home laptop
 
 INSERT INTO ROLE_TABLE VALUES ( 1, 'User')
@@ -54,3 +56,4 @@ INSERT INTO ISSUE_TABLE VALUES (2,  '15:30 09/10', 'Issue description ',  1, FAL
 
 
 https://www.concretepage.com/spring-boot/spring-boot-crudrepository-example
+3qhcGW6R
