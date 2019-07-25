@@ -13,7 +13,7 @@
 		<div class="static_header_bar">
 
 	        <div class="profile_logout_buttons">
-	        	<p><a href="/myProfile">My profile</a></p>
+	        	<p  style="margin-bottom: 5px"><a href="/myProfile">My profile</a></p>
 	        	<c:if test="${pageContext.request.userPrincipal.name != null}">
 			        <form id="logoutForm" method="POST" action="/logout">
 			            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -23,9 +23,20 @@
 		    	</c:if>
 	        </div>
 
-	        <div class="title">
-	        	<h4>Code</h4>
-	        	<h4>Assist</h4>
+			<div style="
+				padding-left: 40%;
+				color: white;
+				text-align: center;
+				display: inline-block;
+			">
+				<h4 style="
+					margin: 0;
+					margin-right: 100px; 
+					margin-top: 5px;
+					font-size: 30px;
+					font-weight: 600;
+				">Code</h4>
+				<h4 style="margin: 0; font-size: 30px; font-weight: 600;">Assist</h4>
 	    	</div>
 
 	    	<div id="create_new_issue_btn" class="profile_logout_buttons">
