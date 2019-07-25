@@ -8,14 +8,27 @@
 	<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="admin_background">
+		<div class="login_header_1">
+				<h1>Code</h1>
+			  </div>
+		  
+			  <div class="login_header_2">
+				<h1>Assist</h1>
+			  </div>
+	  
 
-		<h2 style="margin-top: 30px; margin-bottom: 30px; text-align: center; font-size: 40px;">CodeAssist admin page</h2>
+		<h2 style="margin-top: 30px; margin-bottom: 30px; text-align: center; font-size: 40px;">admin page</h2>
 			
 		<!-- <div class="admin_div" style="height: 300px; width: 300px; background: rgba(241,243,243,0.95); width: 50%; margin: auto;">
 			<p>qwerty</p>
 		</div> -->
 
-		<form class="login" method="POST" action="#" th:action="@{/admin}" th:object="${helper}" style="border:1px solid #ccc; margin: auto; height: 500px;">
+		<form class="login" method="POST" action="#" th:action="@{/admin}" th:object="${helper}" style="border:1px solid #ccc; margin: auto; 
+		    width: -webkit-fit-content;
+    height: -webkit-fit-content;
+    width: -moz-fit-content;
+    height: -moz-fit-content;
+		">
 	        <div class="container" style="width: 80%">
 	          <h1 style="font-size: 30px";>Activity name generator</h1>
 	          
@@ -31,7 +44,7 @@
 	          <div>      
 	            <button type="submit" class="loginbtn">Generate</button>
 	          </div>
-	          <hr style="margin-top: 30px;">
+	          <hr >
 
 	        </div>
       	</form> 

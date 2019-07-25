@@ -56,15 +56,15 @@
 			<h2>My profile</h2>
 
 
-			<div class="container-fluid" style="background-color: rgba(241, 243, 243, 0.95); margin: 20px">
-				<div class="row" th:each="issue:${issueList}">
+			<div th:each="issue:${issueList}" class="container-fluid" style="background-color: rgba(241, 243, 243, 0.95); margin: 20px">
+				<div class="row">
 					<div class="col">
 						<b><div class="row">
 							<div class="col-sm-2 col-xs-4" style="padding-top: 10px">
 								<p style="text-align: left; font-weight: bold; padding-left: 20px;" th:text="${issue.getExercise().getName()}">Activity 01</p>
 							</div>
 							<div class="col-sm-8 col-xs-4" style="padding-top: 10px">
-								<a style="text-decoration: none; font-size: 30px;" th:href= "@{/issue(id=${issue.getId_issue()})}"><p th:text="${issue.getTitle()}">Issue title</p></a>
+								<a style="text-decoration: none; font-size: 30px; word-wrap: break-word" th:href= "@{/issue(id=${issue.getId_issue()})}"><p th:text="${issue.getTitle()}">Issue title</p></a>
 							</div>
 
 							<div class="col-sm-2 col-xs-4" style = "text-align: left; padding-top: 10px">
@@ -78,7 +78,7 @@
 						<div class="row" style=" margin: 20px">
 							<div class = "col-sm-auto" style="text-align: left">
 								<h4 >Description:</h4>
-								<p th:text=${issue.getDescription()} style="white-space: pre-wrap;"></p>
+								<p th:text=${issue.getDescription()} style="white-space: pre-wrap; word-wrap: break-word"></p>
 							</div>
 						</div>
 					</div>
