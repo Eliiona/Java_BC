@@ -1,5 +1,5 @@
 # Java_BC
-Chat aplication as final project
+Application for students discussing problems regarding tasks as final project in Java Bootcamp 2019
 
 !!!IMPORTANT!!! Ommit all the <> when typing the given commands
 To launch this application on your computer you must follow these steps:
