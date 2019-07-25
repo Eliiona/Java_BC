@@ -14,23 +14,25 @@ To launch this application on your computer you must follow these steps:
   7) Login as administrator using these credentials:
    Username: admin
    Password: 3qhcGW6R
-  8) Navigate to admin page by pressing the button "Admin" in your browser
-  9) Add all the activities that will be included in your bootcamp project. After that they should appear on the left side bar.
-  10) Application is ready for bootcampers to use
+  8) Navigate to admin page by pressing the link "Go to admin" in your browser
+  9) Add all the activities that will be included in your project or class. After that they should appear on the left side bar of every other navigation page.
+  10) Application is ready for students to use
   11) You will need to give students IPv4 address (SERVER_IP_ADDRESS in following text) of the server so they are able to connect. You can get IP address by:
       11.1) On Linux OS open terminal and type <ifconfig>
+            You can locate your Ethernet adress after tag 'inet adrr:'
       11.2) On Windows OS open command line terminal and type <ipconfig>
+            You can locate it after tag 'IPv4 Address..:'
   12) Give students the SERVER_IP_ADDRESS 
   
 After following these steps new users will be able to register and use the functionality of CodeAssist application.
-Bootcampers should follow these steps to be able to use this application:
+Student should follow these steps to be able to use this application:
   1) Open their web browser
   2) Connect to the application server by typing <SERVER_IP_ADDRESS:8080>
   3) Register their account and they are ready to go
 
 
 To access database of all the users and their created issues follow these steps:
-  1) Open H2-database in your web browser by typing <http://localhost:8080/h2-console> in navigation bar
+  1) Open H2-database in your web browser by typing <http://localhost:8080/h2-console> in navigation bar or press the button through admin page
   2) Make sure you use these settings in the required fields:
     Saved Settings: Generic H2 (Embedded)
     Setting Name: Generic H2 (Embedded)
