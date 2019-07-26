@@ -166,12 +166,17 @@ public class UserController {
     public String newIssuePost(Issue issue) {
     	issue.setDate();
     	Activity activity = activityRepo.findById(issue.getActivity().getId()).get();
-    	issue.setActivity(activity);
-    	String loggedInUsername = securityService.findLoggedInUsername();
-    	User loggedInUser = userRepo.findByUsername(loggedInUsername);
-    	issue.setUser(loggedInUser);
-    	issueRepo.save(issue);
+    	if(activity.getName().isEmpty()) {
+    		return "redirect:/newIssue";
+    	}
+    	else {
+    		issue.setActivity(activity);
+    		String loggedInUsername = securityService.findLoggedInUsername();
+    		User loggedInUser = userRepo.findByUsername(loggedInUsername);
+    		issue.setUser(loggedInUser);
+    		issueRepo.save(issue);
     	return "redirect:/issue?id=" + issue.getId_issue();
+    	}
     }
     
     
