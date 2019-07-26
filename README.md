@@ -6,8 +6,8 @@ To launch this application on your computer you must follow these steps:
   1) have JRE installed. If you don't have JDK or JRE on your machine, please refer to this guide for detailed instructions:
   https://docs.oracle.com/goldengate/1212/gg-winux/GDRAD/java.htm#BGBFJHAB
 
-  2) Download files located in EXECUTABLES to a folder where you want this application to reside
-  3) Open terminal and navigate inside the CodeAssist folder. If you are on Linux you can just open the CodeAssist folder and press       F4 to open terminal.
+  2) Download files located in https://drive.google.com/file/d/15NdpO_D_Bo4O0CJqzeVQGtmaVm2h13aH/view?usp=sharing to a folder where you want this application to reside
+  3) Open terminal and navigate inside the CodeAssist folder. If you are on Linux you can just open the CodeAssist folder and press F4 to open terminal.
   4) type <java -jar application_name.war> inside terminal
   5) Application should launch and should be accessible from your Web browser
   6) Open Web browser and type <localhost:8080> in your navigation bar
