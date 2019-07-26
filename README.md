@@ -37,7 +37,7 @@ To access database of all the users and their created issues follow these steps:
     Saved Settings: Generic H2 (Embedded)
     Setting Name: Generic H2 (Embedded)
     Driver Class: org.h2.Driver
-    JDBC URL: jdbc:h2:file:./src/main/resources/yourdbname
+    JDBC URL: jdbc:h2:file:./src/resources/yourdbname
     User Name: admin
     Password: 3qhcGW6R
  3) You should now be able to access database and manually configure or delete unnecessary data.
