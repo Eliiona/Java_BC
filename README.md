@@ -1,12 +1,12 @@
 # Java_BC
 
 
-=============================CodeAsssist====================
+===========CodeAsssist=========
 Application for students discussing problems regarding tasks as final project in Java Bootcamp 2019. Main purpose of this application is to alleviate participation in Accenture bootcamps by providing internal communication through web application.
 Main features of our project are server side database, user creation functionality and opportunity to post issues and reply to them. As one of our projects best features we would like to mention the ease of setting this application on any machine that has JRE or JDK installed on it by simply downloading the files and running one command line from terminal.
-============================================================
+================================
 
-===========================USERGUIDES=======================
+=============USERGUIDES============
 !!!IMPORTANT!!! Ommit all the <> when typing the given commands
 To launch this application on your computer you must follow these steps:
   1) have JRE installed. If you don't have JDK or JRE on your machine, please refer to this guide for detailed instructions:
