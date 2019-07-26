@@ -3,10 +3,96 @@
 <head>
 	<title>Comments</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-	<link rel="stylesheet" href="../../static/css/style.css">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
-	<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
+	<style>
+
+			/* All pages */
+		.main_div {
+			height: 99.5vh;
+			width: 100%;
+			background: rgba(62,70,80,1);
+			border: 1px solid black;
+		}
+		.static_header_bar {
+			width: 100%;
+			height: 80px;
+			margin-top: 0px;
+			border-bottom: 2px solid white;
+			display: inline-block;
+			box-sizing: border-box;
+			background: rgba(62,70,80,1);
+		}
+		
+		.profile_logout_buttons {
+			font-size: 20px;
+			font-weight: bold;
+			display: inline-block;
+			float: left;
+			margin: 0;
+			margin-top: 10px;
+			padding-left: 20px;
+		}
+		
+		.profile_logout_buttons p{
+			margin: 0;
+			margin-bottom: 15px;
+		}
+		
+		.profile_logout_buttons a:hover {
+			color: rgba(255, 255, 255, 0.76);
+		}
+		
+		.profile_logout_buttons a {
+			color: white;
+			text-decoration: none;
+		}
+		
+		#create_new_issue_btn {
+			float: right;
+		}
+		
+		#create_new_issue_btn p {
+			float: right;
+			margin: 0;
+			margin-top: 17px;
+			padding-right: 20px;
+		}
+		.side_bar {
+			width: 150px;
+			height:calc(100% - 80px);
+			overflow: auto;
+			margin-top: -1px;
+			float: left;
+			border-right: 2px solid white;
+			display: inline-block;
+			box-sizing: border-box;
+			background: rgba(62,70,80,1);
+			text-align: center;
+		}
+		
+		.side_bar p {
+			font-size: 20px;
+			color: grey;
+			margin: 0;
+			margin-top: 2px;
+		}
+		
+		.side_bar p:nth-child(1) {
+			margin-top: 15px;
+		}
+		
+		.side_bar {
+			text-align: center;
+		}
+		
+		.side_bar button {
+			margin-top: 10px;
+			width: 80%;
+		}
+		
+		
+		
+		</style>
 </head>
 
 <body>
