@@ -49,3 +49,5 @@ To access database of all the users and their created issues follow these steps:
  3) You should now be able to access database and manually configure or delete unnecessary data.
  4) !!!IMPORTANT!!! Don't delete admin entry from USERS_TABLE as it will delete the admin account. Don't delete any role from ROLE_TABLE as it will break the application.
 ==========================================================
+
+PLEASE CONTACT US ON lapins.raivo@gmail.com, janisvigulis@gmail.com, elina.rostoka@gmail.com, emilsverins@gmail.com if you intend to proceed with this project and have any questions regarding the code.
